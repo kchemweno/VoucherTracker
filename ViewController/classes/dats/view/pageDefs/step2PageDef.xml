@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24" id="step2PageDef"
+                Package="dats.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DisbursementAuthorizationsView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="DisbursementAuthorizationsView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="DisbursementAuthorizationsView1Iterator" id="DaNumber">
+      <AttrNames>
+        <Item Value="DaNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DisbursementAuthorizationsView1Iterator" id="TotalValue">
+      <AttrNames>
+        <Item Value="TotalValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DisbursementAuthorizationsView1Iterator" id="NumberOfBeneficiaries">
+      <AttrNames>
+        <Item Value="NumberOfBeneficiaries"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DisbursementAuthorizationsView1Iterator" StaticList="false" Uses="LOV_DistrictId"
+          id="DistrictId" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="DisbursementAuthorizationsView1Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

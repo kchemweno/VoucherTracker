@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Users"
+  Version="12.2.1.12.24"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="users"
+  AliasName="Users"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="Id"
+    ColumnName="id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="users"
+    PrimaryKey="true"
+    IsUpdateable="while_insert">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Firstname"
+    IsNotNull="true"
+    Precision="150"
+    ColumnName="firstname"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="users">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Lastname"
+    IsNotNull="true"
+    Precision="150"
+    ColumnName="lastname"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="users">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Othername"
+    Precision="150"
+    ColumnName="othername"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="users">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Username"
+    IsNotNull="true"
+    Precision="150"
+    ColumnName="username"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="users">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Password"
+    IsNotNull="true"
+    Precision="150"
+    ColumnName="password"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="users">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Gender"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="gender"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="CHAR"
+    TableName="users">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PhoneMobile"
+    Precision="20"
+    ColumnName="phone_mobile"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="users">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PhoneOffice"
+    Precision="20"
+    ColumnName="phone_office"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="users">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Email"
+    Precision="50"
+    ColumnName="email"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="users">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UnitId"
+    ColumnName="unit_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="users">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GroupId"
+    ColumnName="group_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="users">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IsActive"
+    ColumnName="is_active"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="users"
+    IsUpdateable="while_insert">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Description"
+    Precision="150"
+    ColumnName="description"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="users">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="GroupMembers"
+    Association="dats.model.FkUsersGroupsAssoc"
+    AssociationEnd="dats.model.FkUsersGroupsAssoc.GroupMembers"
+    AssociationOtherEnd="dats.model.FkUsersGroupsAssoc.Users"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Groups"
+    Association="dats.model.FkUsersGroupsAssoc1"
+    AssociationEnd="dats.model.FkUsersGroupsAssoc1.Groups"
+    AssociationOtherEnd="dats.model.FkUsersGroupsAssoc1.Users"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="DaTrackingProcess"
+    Association="dats.model.FkUsersGroupsAssoc2"
+    AssociationEnd="dats.model.FkUsersGroupsAssoc2.DaTrackingProcess"
+    AssociationOtherEnd="dats.model.FkUsersGroupsAssoc2.Users"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Units"
+    Association="dats.model.FkUsersGroupsAssoc3"
+    AssociationEnd="dats.model.FkUsersGroupsAssoc3.Units"
+    AssociationOtherEnd="dats.model.FkUsersGroupsAssoc3.Users"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="DisbursementAuthorizations"
+    Association="dats.model.FkUsersGroupsAssoc4"
+    AssociationEnd="dats.model.FkUsersGroupsAssoc4.DisbursementAuthorizations"
+    AssociationOtherEnd="dats.model.FkUsersGroupsAssoc4.Users"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Steps"
+    Association="dats.model.FkUsersGroupsAssoc5"
+    AssociationEnd="dats.model.FkUsersGroupsAssoc5.Steps"
+    AssociationOtherEnd="dats.model.FkUsersGroupsAssoc5.Users"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="DaTrackingProcessDocuments"
+    Association="dats.model.FkUsersGroupsAssoc6"
+    AssociationEnd="dats.model.FkUsersGroupsAssoc6.DaTrackingProcessDocuments"
+    AssociationOtherEnd="dats.model.FkUsersGroupsAssoc6.Users"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="DaStatuses"
+    Association="dats.model.FkUsersGroupsAssoc7"
+    AssociationEnd="dats.model.FkUsersGroupsAssoc7.DaStatuses"
+    AssociationOtherEnd="dats.model.FkUsersGroupsAssoc7.Users"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="GroupMembers1"
+    Association="dats.model.FkUsersUnitsAssoc"
+    AssociationEnd="dats.model.FkUsersUnitsAssoc.GroupMembers1"
+    AssociationOtherEnd="dats.model.FkUsersUnitsAssoc.Users1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Groups1"
+    Association="dats.model.FkUsersUnitsAssoc1"
+    AssociationEnd="dats.model.FkUsersUnitsAssoc1.Groups1"
+    AssociationOtherEnd="dats.model.FkUsersUnitsAssoc1.Users1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="DaTrackingProcess1"
+    Association="dats.model.FkUsersUnitsAssoc2"
+    AssociationEnd="dats.model.FkUsersUnitsAssoc2.DaTrackingProcess1"
+    AssociationOtherEnd="dats.model.FkUsersUnitsAssoc2.Users1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Units1"
+    Association="dats.model.FkUsersUnitsAssoc3"
+    AssociationEnd="dats.model.FkUsersUnitsAssoc3.Units1"
+    AssociationOtherEnd="dats.model.FkUsersUnitsAssoc3.Users1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="DisbursementAuthorizations1"
+    Association="dats.model.FkUsersUnitsAssoc4"
+    AssociationEnd="dats.model.FkUsersUnitsAssoc4.DisbursementAuthorizations1"
+    AssociationOtherEnd="dats.model.FkUsersUnitsAssoc4.Users1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Steps1"
+    Association="dats.model.FkUsersUnitsAssoc5"
+    AssociationEnd="dats.model.FkUsersUnitsAssoc5.Steps1"
+    AssociationOtherEnd="dats.model.FkUsersUnitsAssoc5.Users1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="DaTrackingProcessDocuments1"
+    Association="dats.model.FkUsersUnitsAssoc6"
+    AssociationEnd="dats.model.FkUsersUnitsAssoc6.DaTrackingProcessDocuments1"
+    AssociationOtherEnd="dats.model.FkUsersUnitsAssoc6.Users1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="DaStatuses1"
+    Association="dats.model.FkUsersUnitsAssoc7"
+    AssociationEnd="dats.model.FkUsersUnitsAssoc7.DaStatuses1"
+    AssociationOtherEnd="dats.model.FkUsersUnitsAssoc7.Users1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dats.model.Users.Id"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkUsersGroups">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_users__groups"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dats.model.Users.GroupId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkUsersUnits">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_users__units"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dats.model.Users.UnitId"/>
+    </AttrArray>
+  </Key>
+</Entity>

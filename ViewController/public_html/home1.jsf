@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="home.jsf" id="d1" binding="#{backingBeanScope.backing_home.d1}">
+        <af:messages id="m1" binding="#{backingBeanScope.backing_home.m1}"/>
+        <af:form id="f1" binding="#{backingBeanScope.backing_home.f1}" usesUpload="true">
+            <af:pageTemplate viewId="/disbursement_authorization_mainTemplate.jsf" value="#{bindings.ptb1}" id="pt1"
+                             binding="#{backingBeanScope.backing_home.pt1}">
+                <f:facet name="top"/>
+                <f:facet name="content">
+                    <af:panelSplitter id="ps1" binding="#{backingBeanScope.backing_home.ps1}" splitterPosition="988"
+                                      inlineStyle="height:324px;">
+                        <f:facet name="first">
+                            <af:panelCollection id="pc1" binding="#{backingBeanScope.backing_home.pc1}"
+                                                styleClass="AFStretchWidth">
+                                <f:facet name="menus"/>
+                                <f:facet name="toolbar">
+                                    <af:toolbar id="t1" binding="#{backingBeanScope.backing_home.t1}">
+                                        <af:button text="Update DA"
+                                                   disabled="#{!bindings.CreateInsert.enabled}" id="b1"
+                                                   binding="#{backingBeanScope.backing_home.b1}"
+                                                   icon="#{resource['images:new_booking_small_blue.png']}"
+                                                   actionListener="#{bindings.CreateInsert.execute}"/>
+                                        <af:spacer width="10" height="10" id="s1"
+                                                   binding="#{backingBeanScope.backing_home.s1}"/>
+                                        <af:button text="O.K"
+                                                   disabled="#{!bindings.Commit.enabled}" id="b2"
+                                                   binding="#{backingBeanScope.backing_home.b2}"
+                                                   icon="#{resource['images:1495029165_f-check_256.png']}"
+                                                   actionListener="#{bindings.Commit.execute}"/>
+                                        <af:spacer width="10" height="10" id="s2"
+                                                   binding="#{backingBeanScope.backing_home.s2}"/>
+                                        <af:button text="Cancel"
+                                                   disabled="#{!bindings.Rollback.enabled}" id="b3"
+                                                   binding="#{backingBeanScope.backing_home.b3}"
+                                                   icon="#{resource['images:cancel_small.png']}"
+                                                   actionListener="#{bindings.Rollback.execute}" immediate="true">
+                                            <af:resetActionListener/>
+                                        </af:button>
+                                        <af:button text="Clear Filters" id="b4"
+                                                   binding="#{backingBeanScope.backing_home.b4}"
+                                                   actionListener="#{backingBeanScope.backing_home.resetTableFilter}"
+                                                   icon="#{resource['images:unfilter.gif']}"/>
+                                    </af:toolbar>
+                                </f:facet>
+                                <af:table value="#{bindings.DaTrackingProcessView1.collectionModel}" var="row"
+                                          rows="#{bindings.DaTrackingProcessView1.rangeSize}"
+                                          emptyText="#{bindings.DaTrackingProcessView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.DaTrackingProcessView1.collectionModel.selectedRow}"
+                                          selectionListener="#{backingBeanScope.backing_home.tableRowSelectionListener}"
+                                          rowSelection="single" fetchSize="#{bindings.DaTrackingProcessView1.rangeSize}"
+                                          filterModel="#{bindings.DaTrackingProcessView1Query.queryDescriptor}"
+                                          filterVisible="true"
+                                          queryListener="#{bindings.DaTrackingProcessView1Query.processQuery}"
+                                          varStatus="vs" id="t2" binding="#{backingBeanScope.backing_home.t2}"
+                                          partialTriggers="::b1" editingMode="clickToEdit" width="2627"
+                                          columnStretching="last">
+                                    <af:column sortProperty="#{bindings.DaTrackingProcessView1.hints.Id.name}"
+                                               filterable="true" sortable="true"
+                                               headerText="#{bindings.DaTrackingProcessView1.hints.Id.label}" id="c5"
+                                               visible="false">
+                                        <af:inputText value="#{row.bindings.Id.inputValue}"
+                                                      label="#{bindings.DaTrackingProcessView1.hints.Id.label}"
+                                                      required="#{bindings.DaTrackingProcessView1.hints.Id.mandatory}"
+                                                      columns="#{bindings.DaTrackingProcessView1.hints.Id.displayWidth}"
+                                                      maximumLength="#{bindings.DaTrackingProcessView1.hints.Id.precision}"
+                                                      shortDesc="#{bindings.DaTrackingProcessView1.hints.Id.tooltip}"
+                                                      id="it1">
+                                            <f:validator binding="#{row.bindings.Id.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.DaTrackingProcessView1.hints.Id.format}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.DaTrackingProcessView1.hints.DaId.name}"
+                                               filterable="true" sortable="true" headerText="DA Number" id="c6"
+                                               width="100">
+                                        <af:selectOneChoice value="#{row.bindings.DaId.inputValue}"
+                                                            label="#{row.bindings.DaId.label}"
+                                                            required="#{bindings.DaTrackingProcessView1.hints.DaId.mandatory}"
+                                                            shortDesc="#{bindings.DaTrackingProcessView1.hints.DaId.tooltip}"
+                                                            id="soc2">
+                                            <f:selectItems value="#{row.bindings.DaId.items}" id="si2"/>
+                                            <f:validator binding="#{row.bindings.DaId.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.DaTrackingProcessView1.hints.UserId.name}"
+                                               filterable="true" sortable="true" headerText="User" id="c9" width="125">
+                                        <af:selectOneChoice value="#{row.bindings.UserId.inputValue}"
+                                                            label="#{row.bindings.UserId.label}"
+                                                            required="#{bindings.DaTrackingProcessView1.hints.UserId.mandatory}"
+                                                            shortDesc="#{bindings.DaTrackingProcessView1.hints.UserId.tooltip}"
+                                                            id="soc3">
+                                            <f:selectItems value="#{row.bindings.UserId.items}" id="si1"/>
+                                            <f:validator binding="#{row.bindings.UserId.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.DaTrackingProcessView1.hints.StepId.name}"
+                                               filterable="true" sortable="true" headerText="Step" id="c1" width="212">
+                                        <af:selectOneChoice value="#{row.bindings.StepId.inputValue}"
+                                                            label="#{row.bindings.StepId.label}"
+                                                            required="#{bindings.DaTrackingProcessView1.hints.StepId.mandatory}"
+                                                            shortDesc="#{bindings.DaTrackingProcessView1.hints.StepId.tooltip}"
+                                                            id="soc1">
+                                            <f:selectItems value="#{row.bindings.StepId.items}" id="si3"/>
+                                            <f:validator binding="#{row.bindings.StepId.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.DaTrackingProcessView1.hints.DateEntered.name}"
+                                               filterable="true" sortable="true" headerText="Date" id="c2" width="-37">
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.DaTrackingProcessView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.DateEntered.value}"
+                                                          id="id2">
+                                                <af:convertDateTime pattern="#{bindings.DaTrackingProcessView1.hints.DateEntered.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                        <af:inputDate value="#{row.bindings.DateEntered.inputValue}"
+                                                      label="#{bindings.DaTrackingProcessView1.hints.DateEntered.label}"
+                                                      required="#{bindings.DaTrackingProcessView1.hints.DateEntered.mandatory}"
+                                                      columns="#{bindings.DaTrackingProcessView1.hints.DateEntered.displayWidth}"
+                                                      shortDesc="#{bindings.DaTrackingProcessView1.hints.DateEntered.tooltip}"
+                                                      id="id1" readOnly="true">
+                                            <f:validator binding="#{row.bindings.DateEntered.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.DaTrackingProcessView1.hints.DateEntered.format}"/>
+                                        </af:inputDate>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.DaTrackingProcessView1.hints.Comments.name}"
+                                               filterable="true" sortable="true" headerText="Comments" id="c4"
+                                               width="387">
+                                        <af:inputText value="#{row.bindings.Comments.inputValue}"
+                                                      label="#{bindings.DaTrackingProcessView1.hints.Comments.label}"
+                                                      required="#{bindings.DaTrackingProcessView1.hints.Comments.mandatory}"
+                                                      columns="#{bindings.DaTrackingProcessView1.hints.Comments.displayWidth}"
+                                                      maximumLength="#{bindings.DaTrackingProcessView1.hints.Comments.precision}"
+                                                      shortDesc="#{bindings.DaTrackingProcessView1.hints.Comments.tooltip}"
+                                                      id="it5">
+                                            <f:validator binding="#{row.bindings.Comments.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                                <f:facet name="statusbar"/>
+                            </af:panelCollection>
+                        </f:facet>
+                        <f:facet name="second">
+                            <af:panelSplitter id="ps2" binding="#{backingBeanScope.backing_home.ps2}"
+                                              orientation="vertical" splitterPosition="67">
+                                <f:facet name="first">
+                                    <af:panelGridLayout id="pgl1" binding="#{backingBeanScope.backing_home.pgl1}">
+                                        <af:gridRow marginTop="5px" height="10px" id="gr1"
+                                                    binding="#{backingBeanScope.backing_home.gr1}">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1"
+                                                         binding="#{backingBeanScope.backing_home.gc1}"/>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr2"
+                                                    binding="#{backingBeanScope.backing_home.gr2}">
+                                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2"
+                                                         binding="#{backingBeanScope.backing_home.gc2}">
+                                                <af:inputFile id="if1" binding="#{backingBeanScope.backing_home.if1}"
+                                                              maximumFiles="1" rows="20" autoSubmit="true"
+                                                              valueChangeListener="#{backingBeanScope.backing_home.uploadFileVCE}"
+                                                              label="Select file to upload">
+                                                    <?audit suppress oracle.jdeveloper.jsp.multiple-facet-components?>
+                                                </af:inputFile>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </f:facet>
+                                <f:facet name="second">
+                                    <af:panelCollection id="pc2" binding="#{backingBeanScope.backing_home.pc2}"
+                                                        styleClass="AFStretchWidth">
+                                        <f:facet name="menus"/>
+                                        <f:facet name="toolbar"/>
+                                        <af:table value="#{bindings.DaTrackingProcessDocumentsView1.collectionModel}"
+                                                  var="row" rows="#{bindings.DaTrackingProcessDocumentsView1.rangeSize}"
+                                                  emptyText="#{bindings.DaTrackingProcessDocumentsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                                  rowBandingInterval="0"
+                                                  selectedRowKeys="#{bindings.DaTrackingProcessDocumentsView1.collectionModel.selectedRow}"
+                                                  selectionListener="#{bindings.DaTrackingProcessDocumentsView1.collectionModel.makeCurrent}"
+                                                  rowSelection="single"
+                                                  fetchSize="#{bindings.DaTrackingProcessDocumentsView1.rangeSize}"
+                                                  id="t3" binding="#{backingBeanScope.backing_home.t3}"
+                                                  editingMode="readOnly" partialTriggers=":::pc1:t2" width="153"
+                                                  columnStretching="last">
+                                            <af:column headerText="File Name"
+                                                       id="c8" width="305">
+                                                <af:inputText value="#{row.bindings.DocumentName.inputValue}"
+                                                              label="#{bindings.DaTrackingProcessDocumentsView1.hints.DocumentName.label}"
+                                                              required="#{bindings.DaTrackingProcessDocumentsView1.hints.DocumentName.mandatory}"
+                                                              columns="#{bindings.DaTrackingProcessDocumentsView1.hints.DocumentName.displayWidth}"
+                                                              maximumLength="#{bindings.DaTrackingProcessDocumentsView1.hints.DocumentName.precision}"
+                                                              shortDesc="#{bindings.DaTrackingProcessDocumentsView1.hints.DocumentName.tooltip}"
+                                                              id="it2">
+                                                    <f:validator binding="#{row.bindings.DocumentName.validator}"/>
+                                                </af:inputText>
+                                            </af:column>
+                                            <af:column
+                                                       id="c7" width="101">
+                                                <af:inputText value="#{row.bindings.DocumentLocation.inputValue}"
+                                                              label="#{bindings.DaTrackingProcessDocumentsView1.hints.DocumentLocation.label}"
+                                                              required="#{bindings.DaTrackingProcessDocumentsView1.hints.DocumentLocation.mandatory}"
+                                                              columns="#{bindings.DaTrackingProcessDocumentsView1.hints.DocumentLocation.displayWidth}"
+                                                              maximumLength="#{bindings.DaTrackingProcessDocumentsView1.hints.DocumentLocation.precision}"
+                                                              shortDesc="#{bindings.DaTrackingProcessDocumentsView1.hints.DocumentLocation.tooltip}"
+                                                              id="it3" visible="false">
+                                                    <f:validator binding="#{row.bindings.DocumentLocation.validator}"/>
+                                                </af:inputText>
+                                                <af:link text="Download" id="l1">
+                                                    <af:fileDownloadActionListener method="#{backingBeanScope.backing_home.downloadFileListener}"
+                                                                                   filename="#{row.bindings.DocumentLocation.inputValue}"/>
+                                                </af:link>
+                                            </af:column>
+                                        </af:table>
+                                        <f:facet name="statusbar"/>
+                                    </af:panelCollection>
+                                </f:facet>
+                            </af:panelSplitter>
+                        </f:facet>
+                    </af:panelSplitter>
+                </f:facet>
+                <f:attribute name="page_title" value="Home"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_home-->
+</f:view>

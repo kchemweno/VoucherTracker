@@ -1,0 +1,472 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <!--  <af:document title="da_trackings.jsf" id="d1" binding="#{backingBeanScope.backing_da_trackings.d1}"> -->
+  <af:document title="Home" id="d1" binding="#{backingBeanScope.backing_da_trackings.d1}"> 
+        <af:messages id="m1" binding="#{backingBeanScope.backing_da_trackings.m1}"/>
+        <af:form id="f1" binding="#{backingBeanScope.backing_da_trackings.f1}" usesUpload="true">
+            <af:pageTemplate viewId="/disbursement_authorization_mainTemplate.jsf" value="#{bindings.ptb1}" id="pt1"
+                             binding="#{backingBeanScope.backing_da_trackings.pt1}">
+                <f:facet name="top"/>
+                <f:facet name="content">
+                    <af:panelSplitter id="ps1" binding="#{backingBeanScope.backing_da_trackings.ps1}"
+                                      inlineStyle="width:1836px; height:441px;" splitterPosition="0">
+                        <f:facet name="first">
+                            <af:panelSplitter id="ps2" binding="#{backingBeanScope.backing_da_trackings.ps2}"
+                                              orientation="vertical" splitterPosition="29">
+                                <f:facet name="first"/>
+                                <f:facet name="second">
+                                    <af:panelGridLayout id="pgl2"
+                                                        binding="#{backingBeanScope.backing_da_trackings.pgl2}">
+                                        <af:gridRow marginTop="0px" height="auto" id="gr2"
+                                                    binding="#{backingBeanScope.backing_da_trackings.gr2}">
+                                            <af:gridCell marginStart="0px" width="0px" id="gc2"
+                                                         binding="#{backingBeanScope.backing_da_trackings.gc2}">
+                                                <af:panelGroupLayout id="pgl4"
+                                                                     binding="#{backingBeanScope.backing_da_trackings.pgl4}"
+                                                                     layout="scroll"/>
+                                                <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                                                          binding="#{backingBeanScope.backing_da_trackings.p2}">
+                                                    <af:panelWindow id="pw2"
+                                                                    binding="#{backingBeanScope.backing_da_trackings.pw2}"
+                                                                    title="Generate DA Number">
+                                                        <af:panelFormLayout id="pfl4"
+                                                                            binding="#{backingBeanScope.backing_da_trackings.pfl4}">
+                                                            <af:selectOneChoice value="#{bindings.DaId.inputValue}"
+                                                                                label="Temporary DA Number"
+                                                                                required="#{bindings.DaId.hints.mandatory}"
+                                                                                shortDesc="#{bindings.DaId.hints.tooltip}"
+                                                                                id="soc5"
+                                                                                binding="#{backingBeanScope.backing_da_trackings.soc5}"
+                                                                                contentStyle="width:240px;"
+                                                                                valueChangeListener="#{backingBeanScope.backing_da_trackings.getStep2OldDaNumberListener}"
+                                                                                visible="false">
+                                                                <f:selectItems value="#{bindings.DaId.items}" id="si5"
+                                                                               binding="#{backingBeanScope.backing_da_trackings.si5}"/>
+                                                                <f:validator binding="#{bindings.DaId.validator}"/>
+                                                            </af:selectOneChoice>
+                                                            <af:inputText value="#{bindings.DaNumber.inputValue}"
+                                                                          label="DA Number"
+                                                                          required="#{bindings.DaNumber.hints.mandatory}"
+                                                                          columns="#{bindings.DaNumber.hints.displayWidth}"
+                                                                          maximumLength="#{bindings.DaNumber.hints.precision}"
+                                                                          shortDesc="#{bindings.DaNumber.hints.tooltip}"
+                                                                          id="it10"
+                                                                          binding="#{backingBeanScope.backing_da_trackings.it10}"
+                                                                          contentStyle="width:240px;">
+                                                                <f:validator binding="#{bindings.DaNumber.validator}"/>
+                                                            </af:inputText>
+                                                            <af:inputText value="#{bindings.TotalValue.inputValue}"
+                                                                          label="Total Value"
+                                                                          required="#{bindings.TotalValue.hints.mandatory}"
+                                                                          columns="#{bindings.TotalValue.hints.displayWidth}"
+                                                                          maximumLength="#{bindings.TotalValue.hints.precision}"
+                                                                          shortDesc="#{bindings.TotalValue.hints.tooltip}"
+                                                                          id="it11"
+                                                                          binding="#{backingBeanScope.backing_da_trackings.it11}"
+                                                                          contentStyle="width:240px;">
+                                                                <f:validator binding="#{bindings.TotalValue.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.TotalValue.format}"/>
+                                                            </af:inputText>
+                                                            <af:inputText value="#{bindings.NumberOfBeneficiaries.inputValue}"
+                                                                          label="Beneficiaries"
+                                                                          required="#{bindings.NumberOfBeneficiaries.hints.mandatory}"
+                                                                          columns="#{bindings.NumberOfBeneficiaries.hints.displayWidth}"
+                                                                          maximumLength="#{bindings.NumberOfBeneficiaries.hints.precision}"
+                                                                          shortDesc="#{bindings.NumberOfBeneficiaries.hints.tooltip}"
+                                                                          id="it12"
+                                                                          binding="#{backingBeanScope.backing_da_trackings.it12}"
+                                                                          contentStyle="width:240px;">
+                                                                <f:validator binding="#{bindings.NumberOfBeneficiaries.validator}"/>
+                                                                <af:convertNumber groupingUsed="false"
+                                                                                  pattern="#{bindings.NumberOfBeneficiaries.format}"/>
+                                                            </af:inputText>
+                                                            <af:spacer width="10" height="10" id="s3"
+                                                                       binding="#{backingBeanScope.backing_da_trackings.s3}"/>
+                                                            <af:selectOneChoice value="#{bindings.NgoId1.inputValue}"
+                                                                                label="NGO"
+                                                                                required="#{bindings.NgoId1.hints.mandatory}"
+                                                                                shortDesc="#{bindings.NgoId1.hints.tooltip}"
+                                                                                id="soc6"
+                                                                                binding="#{backingBeanScope.backing_da_trackings.soc6}"
+                                                                                contentStyle="width:240px;">
+                                                                <f:selectItems value="#{bindings.NgoId1.items}" id="si6"
+                                                                               binding="#{backingBeanScope.backing_da_trackings.si6}"/>
+                                                                <f:validator binding="#{bindings.NgoId1.validator}"/>
+                                                            </af:selectOneChoice>
+                                                            <af:inputText value="#{bindings.LoaNumber1.inputValue}"
+                                                                          label="LOA"
+                                                                          required="#{bindings.LoaNumber1.hints.mandatory}"
+                                                                          columns="#{bindings.LoaNumber1.hints.displayWidth}"
+                                                                          maximumLength="#{bindings.LoaNumber1.hints.precision}"
+                                                                          shortDesc="#{bindings.LoaNumber1.hints.tooltip}"
+                                                                          id="it13"
+                                                                          binding="#{backingBeanScope.backing_da_trackings.it13}"
+                                                                          contentStyle="width:240px;">
+                                                                <f:validator binding="#{bindings.LoaNumber1.validator}"/>
+                                                            </af:inputText>
+                                                            <af:spacer width="10" height="0" id="s1"
+                                                                       binding="#{backingBeanScope.backing_step2.s1}"/>
+                                                            <af:selectOneChoice value="#{bindings.DistrictId1.inputValue}"
+                                                                                label="District"
+                                                                                required="#{bindings.DistrictId1.hints.mandatory}"
+                                                                                shortDesc="#{bindings.DistrictId1.hints.tooltip}"
+                                                                                id="soc11"
+                                                                                binding="#{backingBeanScope.backing_da_trackings.soc11}"
+                                                                                contentStyle="width:240px;">
+                                                                <f:selectItems value="#{bindings.DistrictId1.items}"
+                                                                               id="si11"
+                                                                               binding="#{backingBeanScope.backing_da_trackings.si11}"/>
+                                                                <f:validator binding="#{bindings.DistrictId1.validator}"/>
+                                                            </af:selectOneChoice>
+                                                            <af:spacer width="10" height="10" id="s4"
+                                                                       binding="#{backingBeanScope.backing_da_trackings.s4}"/>
+                                                            <af:selectOneChoice value="#{bindings.PhaseId.inputValue}"
+                                                                                label="Phase"
+                                                                                required="#{bindings.PhaseId.hints.mandatory}"
+                                                                                shortDesc="#{bindings.PhaseId.hints.tooltip}"
+                                                                                id="soc12"
+                                                                                binding="#{backingBeanScope.backing_da_trackings.soc12}"
+                                                                                contentStyle="width:240px;">
+                                                                <f:selectItems value="#{bindings.PhaseId.items}"
+                                                                               id="si12"
+                                                                               binding="#{backingBeanScope.backing_da_trackings.si12}"/>
+                                                                <f:validator binding="#{bindings.PhaseId.validator}"/>
+                                                            </af:selectOneChoice>
+                                                            <af:spacer width="10" height="10" id="s5"
+                                                                       binding="#{backingBeanScope.backing_da_trackings.s5}"/>
+                                                            <af:selectOneChoice value="#{bindings.InterventionTypeId1.inputValue}"
+                                                                                label="Intervention Type"
+                                                                                required="#{bindings.InterventionTypeId1.hints.mandatory}"
+                                                                                shortDesc="#{bindings.InterventionTypeId1.hints.tooltip}"
+                                                                                id="soc13"
+                                                                                binding="#{backingBeanScope.backing_da_trackings.soc13}"
+                                                                                contentStyle="width:240px;">
+                                                                <f:selectItems value="#{bindings.InterventionTypeId1.items}"
+                                                                               id="si13"
+                                                                               binding="#{backingBeanScope.backing_da_trackings.si13}"/>
+                                                                <f:validator binding="#{bindings.InterventionTypeId1.validator}"/>
+                                                            </af:selectOneChoice>
+                                                            <af:inputText value="#{bindings.Description.inputValue}"
+                                                                          label="Comments"
+                                                                          required="#{bindings.Description.hints.mandatory}"
+                                                                          columns="#{bindings.Description.hints.displayWidth}"
+                                                                          maximumLength="#{bindings.Description.hints.precision}"
+                                                                          shortDesc="#{bindings.Description.hints.tooltip}"
+                                                                          id="it14"
+                                                                          binding="#{backingBeanScope.backing_da_trackings.it14}"
+                                                                          rows="3" contentStyle="width:240px;">
+                                                                <f:validator binding="#{bindings.Description.validator}"/>
+                                                            </af:inputText>
+                                                            <af:panelGridLayout id="pgl6"
+                                                                                binding="#{backingBeanScope.backing_da_trackings.pgl6}">
+                                                                <af:gridRow marginTop="5px" height="auto"
+                                                                            marginBottom="5px" id="gr4"
+                                                                            binding="#{backingBeanScope.backing_da_trackings.gr4}">
+                                                                    <af:gridCell marginStart="5px" width="100%"
+                                                                                 marginEnd="5px" id="gc4"
+                                                                                 binding="#{backingBeanScope.backing_da_trackings.gc4}"
+                                                                                 halign="end" valign="middle">
+                                                                        <af:button text="O.K" id="b3"
+                                                                                   binding="#{backingBeanScope.backing_step2.b1}"
+                                                                                   disabled="#{!bindings.insertGenerateDaDetails.enabled}"
+                                                                                   icon="#{resource['images:1495029165_f-check_256.png']}"
+                                                                                   actionListener="#{backingBeanScope.backing_da_trackings.insertGenerateDaDetails}"/>
+                                                                    </af:gridCell>
+                                                                </af:gridRow>
+                                                            </af:panelGridLayout>
+                                                        </af:panelFormLayout>
+                                                    </af:panelWindow>
+                                                </af:popup>
+                                            </af:gridCell>
+                                            <af:gridCell marginStart="0px" width="0px" id="gc3"
+                                                         binding="#{backingBeanScope.backing_da_trackings.gc3}">
+                                                <af:popup childCreation="deferred" autoCancel="enabled" id="p3"
+                                                          binding="#{backingBeanScope.backing_da_trackings.p3}"
+                                                          contentDelivery="lazy">
+                                                    <af:panelWindow id="pw3" binding="#{backingBeanScope.backing_da_trackings.pw3}"
+                                                                    title="#{backingBeanScope.backing_da_trackings.panelWindowTitle}">
+                                                        <af:panelFormLayout id="pfl3"
+                                                                            binding="#{backingBeanScope.backing_page3.pfl2}"
+                                                                            inlineStyle="width:448px; height:283px;"
+                                                                            labelAlignment="start">
+                                                            <af:selectOneChoice value="#{bindings.DaId.inputValue}"
+                                                                                label="DA Number"
+                                                                                required="#{bindings.DaId.hints.mandatory}"
+                                                                                shortDesc="#{bindings.DaId.hints.tooltip}"
+                                                                                id="soc1"
+                                                                                binding="#{backingBeanScope.backing_da_trackings.soc1}"
+                                                                                contentStyle="width:240px;"
+                                                                                valueChangeListener="#{backingBeanScope.backing_da_trackings.daNumberChangeListener}">
+                                                                <f:selectItems value="#{bindings.DaId.items}" id="si1"
+                                                                               binding="#{backingBeanScope.backing_da_trackings.si1}"/>
+                                                                <f:validator binding="#{bindings.DaId.validator}"/>
+                                                            </af:selectOneChoice>
+                                                            <af:spacer width="11" height="2" id="s2"
+                                                                       binding="#{backingBeanScope.backing_page3.s1}"/>
+                                                            <af:inputText label="Step" id="it7"
+                                                                          binding="#{backingBeanScope.backing_page3.it2}"
+                                                                          value="3" contentStyle="width:240px;"
+                                                                          visible="false" clientComponent="false"/>
+                                                            <af:inputText label="Comments" id="it4"
+                                                                          binding="#{backingBeanScope.backing_da_trackings.it4}"
+                                                                          rows="3" contentStyle="width:240px;"/>
+                                                            <af:inputFile label="File" id="if1"
+                                                                          binding="#{backingBeanScope.backing_page3.if1}"
+                                                                          valueChangeListener="#{backingBeanScope.backing_da_trackings.uploadDAFiles}"
+                                                                          uploadType="auto" displayMode="default"
+                                                                          simple="false" autoSubmit="false"
+                                                                          validator="#{backingBeanScope.backing_da_trackings.if1_validator}"
+                                                                          rows="1"/>
+                                                            <af:panelGridLayout id="pgl1"
+                                                                                binding="#{backingBeanScope.backing_page3.pgl1}">
+                                                                <af:gridRow marginTop="5px" height="auto"
+                                                                            marginBottom="5px" id="gr1"
+                                                                            binding="#{backingBeanScope.backing_page3.gr1}">
+                                                                    <af:gridCell marginStart="5px" width="100%"
+                                                                                 marginEnd="5px" id="gc1"
+                                                                                 binding="#{backingBeanScope.backing_page3.gc1}"
+                                                                                 halign="end">
+                                                                        <af:button text="O.K" id="b1"
+                                                                                   binding="#{backingBeanScope.backing_page3.b1}"
+                                                                                   disabled="#{!bindings.insertDaStepDetailsProgress.enabled}"
+                                                                                   icon="#{resource['images:1495029165_f-check_256.png']}"
+                                                                                   actionListener="#{backingBeanScope.backing_da_trackings.insertDaStepDetailsProgress}"/>
+                                                                    </af:gridCell>
+                                                                </af:gridRow>
+                                                            </af:panelGridLayout>
+                                                        </af:panelFormLayout>
+                                                    </af:panelWindow>
+                                                </af:popup>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                        <af:gridRow marginTop="0px" height="auto" id="gr3"
+                                                    binding="#{backingBeanScope.backing_da_trackings.gr3}">
+                                            <af:gridCell marginStart="0px" width="0px" id="gc6"
+                                                         binding="#{backingBeanScope.backing_da_trackings.gc6}">
+                                                <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                                                          binding="#{backingBeanScope.backing_da_trackings.p1}">
+                                                    <af:panelWindow id="pw1"
+                                                                    binding="#{backingBeanScope.backing_da_trackings.pw1}"
+                                                                    title="Initiate DA Request">
+                                                        <af:panelFormLayout id="pfl1"
+                                                                            binding="#{backingBeanScope.backing_step1.pfl1}"
+                                                                            inlineStyle="height:233px; width:470px;">
+                                                            <f:facet name="footer">
+                                                                <af:panelGridLayout id="pgl5"
+                                                                                    binding="#{backingBeanScope.backing_step1.pgl1}"
+                                                                                    styleClass="width:250px;">
+                                                                    <af:gridRow marginTop="5px" height="auto"
+                                                                                marginBottom="5px" id="gr7"
+                                                                                binding="#{backingBeanScope.backing_step1.gr1}">
+                                                                        <af:gridCell marginStart="5px" width="100%"
+                                                                                     marginEnd="5px" id="gc19"
+                                                                                     binding="#{backingBeanScope.backing_step1.gc1}"
+                                                                                     halign="end">
+                                                                            <af:button text="O.K" id="b4"
+                                                                                       binding="#{backingBeanScope.backing_step1.b1}"
+                                                                                       disabled="#{!bindings.insertRequestDaFileDetails.enabled}"
+                                                                                       actionListener="#{bindings.insertRequestDaFileDetails.execute}"
+                                                                                       icon="#{resource['images:1495029165_f-check_256.png']}"/>
+                                                                        </af:gridCell>
+                                                                    </af:gridRow>
+                                                                </af:panelGridLayout>
+                                                            </f:facet>
+                                                            <af:inputText label="Temporary DA Number" id="it8"
+                                                                          binding="#{backingBeanScope.backing_da_trackings.it8}"
+                                                                          contentStyle="width:240px;" visible="false"/>
+                                                            <af:inputFile label="Upload DA Numbers File" id="if2"
+                                                                          binding="#{backingBeanScope.backing_da_trackings.if2}"
+                                                                          rows="1"
+                                                                          valueChangeListener="#{backingBeanScope.backing_da_trackings.uploadRequestDAFile}"
+                                                                          uploadType="auto"/>
+                                                            <af:inputText label="Comments" id="it9"
+                                                                          binding="#{backingBeanScope.backing_da_trackings.it9}"
+                                                                          contentStyle="width:240px;" rows="3"/>
+                                                        </af:panelFormLayout>
+                                                    </af:panelWindow>
+                                                </af:popup>
+                                            </af:gridCell>
+                                        </af:gridRow>
+                                    </af:panelGridLayout>
+                                </f:facet>
+                            </af:panelSplitter>
+                        </f:facet>
+                        <f:facet name="second">
+                            <af:panelCollection id="pc1" binding="#{backingBeanScope.backing_da_trackings.pc1}"
+                                                styleClass="AFStretchWidth">
+                                <f:facet name="menus">
+                                    <af:menu text="Update DA" id="m2" binding="#{backingBeanScope.backing_da_trackings.m2}"
+                                             inlineStyle="width:180px;">
+                                        <af:menu text="CBI" id="m3"
+                                                 binding="#{backingBeanScope.backing_da_trackings.m3}">
+                                            <af:commandMenuItem text="Request DA" id="cmi1"
+                                                                binding="#{backingBeanScope.backing_da_trackings.cmi1}"
+                                                                action="#{backingBeanScope.backing_da_trackings.showInitiateDARequestPopupDialog}"
+                                                                visible="false"/>
+                                            <af:commandMenuItem text="2. Generate Payment" id="cmi2"
+                                                                binding="#{backingBeanScope.backing_da_trackings.cmi2}"
+                                                                action="#{backingBeanScope.backing_da_trackings.showStep2PopupDialog}">                                                               
+                                                                </af:commandMenuItem>
+                                            <af:commandMenuItem text="3. Send Routing Slip" id="cmi3"
+                                                                binding="#{backingBeanScope.backing_da_trackings.cmi3}"
+                                                                action="#{backingBeanScope.backing_da_trackings.showStep3PopupDialog}"/>
+                                            <af:commandMenuItem text="4. Send Voucher To Implementing Partners" id="cmi4"
+                                                                binding="#{backingBeanScope.backing_da_trackings.cmi4}"
+                                                                action="#{backingBeanScope.backing_da_trackings.showStep4PopupDialog}"/>
+                                            <af:commandMenuItem text="10. Verify Vouchers" id="cmi5"
+                                                                binding="#{backingBeanScope.backing_da_trackings.cmi5}"
+                                                                action="#{backingBeanScope.backing_da_trackings.showStep10PopupDialog}"/>
+                                            <af:commandMenuItem text="11. Send Verification Findings To Compliance"
+                                                                id="cmi6"
+                                                                binding="#{backingBeanScope.backing_da_trackings.cmi6}"
+                                                                action="#{backingBeanScope.backing_da_trackings.showStep12PopupDialog}"/>
+                                            <af:commandMenuItem text="12. Inform Finance To Reimburse Money Vendor"
+                                                                id="cmi15"
+                                                                binding="#{backingBeanScope.backing_da_trackings.cmi15}"
+                                                                action="#{backingBeanScope.backing_da_trackings.showStep13PopupDialog}"/>
+                                        </af:menu>
+                                        <af:menu text="Finance" id="m4"
+                                                 binding="#{backingBeanScope.backing_da_trackings.m4}">
+                                            <af:commandMenuItem text="1. Generate DA Number" id="cmi7"
+                                                                binding="#{backingBeanScope.backing_da_trackings.cmi7}"
+                                                                action="#{backingBeanScope.backing_da_trackings.showGenerateDAPopupDialog}"/>
+                                            <af:commandMenuItem text="Return Routing Slip to CBI" id="cmi12"
+                                                                binding="#{backingBeanScope.backing_da_trackings.cmi12}"
+                                                                action="#{backingBeanScope.backing_da_trackings.showStep3bPopupDialog}"/>
+                                            <af:commandMenuItem text="Approve Routing Slip" id="cmi16"
+                                                                binding="#{backingBeanScope.backing_da_trackings.cmi16}"
+                                                                action="#{backingBeanScope.backing_da_trackings.showStep3cPopupDialog}"/>
+                                            <af:commandMenuItem text="5. Share Z Portal With Money Vendor" id="cmi8"
+                                                                binding="#{backingBeanScope.backing_da_trackings.cmi8}"
+                                                                action="#{backingBeanScope.backing_da_trackings.showStep5PopupDialog}"/>
+                                            <af:commandMenuItem text="6. Confirm Payments Readiness To CBI" id="cmi9"
+                                                                binding="#{backingBeanScope.backing_da_trackings.cmi9}"
+                                                                action="#{backingBeanScope.backing_da_trackings.showStep6PopupDialog}"/>
+                                            <af:commandMenuItem text="7. Complete Payments Confirmation" id="cmi10"
+                                                                binding="#{backingBeanScope.backing_da_trackings.cmi10}"
+                                                                action="#{backingBeanScope.backing_da_trackings.showStep7PopupDialog}"/>
+                                            <af:commandMenuItem text="13. Reimburse Money Vendor" id="cmi11"
+                                                                binding="#{backingBeanScope.backing_da_trackings.cmi11}"
+                                                                action="#{backingBeanScope.backing_da_trackings.showStep14PopupDialog}"/>
+                                        </af:menu>
+                                        <af:menu text="Logistics" id="m5"
+                                                 binding="#{backingBeanScope.backing_da_trackings.m5}">
+                                            <af:commandMenuItem text="9. Transport Vouchers To Nairobi" id="cmi14"
+                                                                binding="#{backingBeanScope.backing_da_trackings.cmi14}"
+                                                                action="#{backingBeanScope.backing_da_trackings.showStep9PopupDialog}"/>
+                                        </af:menu>
+                                        <af:menu text="Field Officers" id="m6"
+                                                 binding="#{backingBeanScope.backing_da_trackings.m6}">
+                                            <af:commandMenuItem text="8. Receive Vouchers" id="cmi13"
+                                                                binding="#{backingBeanScope.backing_da_trackings.cmi13}"
+                                                                action="#{backingBeanScope.backing_da_trackings.showStep8PopupDialog}"/>
+                                        </af:menu>
+                                        <af:menu text="Compliance" id="m7"
+                                                 binding="#{backingBeanScope.backing_da_trackings.m7}" visible="false"/>
+                                    </af:menu>
+                                </f:facet>
+                                <f:facet name="toolbar">
+                                    <af:toolbar id="t2" binding="#{backingBeanScope.backing_da_trackings.t2}">
+                                        <af:button text="Clear Filter" id="b2"
+                                                   binding="#{backingBeanScope.backing_da_trackings.b1}"
+                                                   actionListener="#{backingBeanScope.backing_da_trackings.resetTableFilter}"
+                                                   icon="#{resource['images:unfilter.gif']}"/>
+                                    </af:toolbar>
+                                </f:facet>
+                                <af:table value="#{bindings.DaTrackingProcessView1.collectionModel}" var="row"
+                                          rows="#{bindings.DaTrackingProcessView1.rangeSize}"
+                                          emptyText="#{bindings.DaTrackingProcessView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.DaTrackingProcessView1.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.DaTrackingProcessView1.collectionModel.makeCurrent}"
+                                          rowSelection="single" fetchSize="#{bindings.DaTrackingProcessView1.rangeSize}"
+                                          id="t1" binding="#{backingBeanScope.backing_da_trackings.t1}"
+                                          columnStretching="last" editingMode="readOnly"
+                                          filterModel="#{bindings.DaTrackingProcessView1Query.queryDescriptor}"
+                                          filterVisible="true"
+                                          queryListener="#{bindings.DaTrackingProcessView1Query.processQuery}"
+                                          varStatus="vs">
+                                    <af:column headerText="DA Number" id="c1" width="100"
+                                               sortProperty="#{bindings.DaTrackingProcessView1.hints.DaId.name}"
+                                               filterable="true" sortable="true">
+                                        <af:selectOneChoice value="#{row.bindings.DaId.inputValue}"
+                                                            label="#{row.bindings.DaId.label}"
+                                                            required="#{bindings.DaTrackingProcessView1.hints.DaId.mandatory}"
+                                                            shortDesc="#{bindings.DaTrackingProcessView1.hints.DaId.tooltip}"
+                                                            id="soc4">
+                                            <f:selectItems value="#{row.bindings.DaId.items}" id="si4"/>
+                                            <f:validator binding="#{row.bindings.DaId.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column headerText="Step" id="c2" width="281"
+                                               sortProperty="#{bindings.DaTrackingProcessView1.hints.StepId.name}"
+                                               filterable="true" sortable="true">
+                                        <af:selectOneChoice value="#{row.bindings.StepId.inputValue}"
+                                                            label="#{row.bindings.StepId.label}"
+                                                            required="#{bindings.DaTrackingProcessView1.hints.StepId.mandatory}"
+                                                            shortDesc="#{bindings.DaTrackingProcessView1.hints.StepId.tooltip}"
+                                                            id="soc2">
+                                            <f:selectItems value="#{row.bindings.StepId.items}" id="si2"/>
+                                            <f:validator binding="#{row.bindings.StepId.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column headerText="User" id="c3" width="110"
+                                               sortProperty="#{bindings.DaTrackingProcessView1.hints.UserId.name}"
+                                               filterable="true" sortable="true">
+                                        <af:selectOneChoice value="#{row.bindings.UserId.inputValue}"
+                                                            label="#{row.bindings.UserId.label}"
+                                                            required="#{bindings.DaTrackingProcessView1.hints.UserId.mandatory}"
+                                                            shortDesc="#{bindings.DaTrackingProcessView1.hints.UserId.tooltip}"
+                                                            id="soc3">
+                                            <f:selectItems value="#{row.bindings.UserId.items}" id="si3"/>
+                                            <f:validator binding="#{row.bindings.UserId.validator}"/>
+                                        </af:selectOneChoice>
+                                    </af:column>
+                                    <af:column headerText="Date" id="c4" width="78"
+                                               sortProperty="#{bindings.DaTrackingProcessView1.hints.DateEntered.name}"
+                                               filterable="true" sortable="true">
+                                        <af:inputDate value="#{row.bindings.DateEntered.inputValue}"
+                                                      label="#{bindings.DaTrackingProcessView1.hints.DateEntered.label}"
+                                                      required="#{bindings.DaTrackingProcessView1.hints.DateEntered.mandatory}"
+                                                      columns="#{bindings.DaTrackingProcessView1.hints.DateEntered.displayWidth}"
+                                                      shortDesc="#{bindings.DaTrackingProcessView1.hints.DateEntered.tooltip}"
+                                                      id="id1">
+                                            <f:validator binding="#{row.bindings.DateEntered.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.DaTrackingProcessView1.hints.DateEntered.format}"/>
+                                        </af:inputDate>
+                                        <f:facet name="filter">
+                                            <af:inputDate value="#{bindings.DaTrackingProcessView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.DateEntered.value}"
+                                                          id="id2"
+                                                          binding="#{backingBeanScope.backing_da_trackings.id2}">
+                                                <af:convertDateTime pattern="#{bindings.DaTrackingProcessView1.hints.DateEntered.format}"/>
+                                            </af:inputDate>
+                                        </f:facet>
+                                    </af:column>
+                                    <af:column headerText="#{bindings.DaTrackingProcessView1.hints.Comments.label}"
+                                               id="c5" width="-69"
+                                               sortProperty="#{bindings.DaTrackingProcessView1.hints.Comments.name}"
+                                               filterable="true" sortable="true">
+                                        <af:inputText value="#{row.bindings.Comments.inputValue}"
+                                                      label="#{bindings.DaTrackingProcessView1.hints.Comments.label}"
+                                                      required="#{bindings.DaTrackingProcessView1.hints.Comments.mandatory}"
+                                                      columns="#{bindings.DaTrackingProcessView1.hints.Comments.displayWidth}"
+                                                      maximumLength="#{bindings.DaTrackingProcessView1.hints.Comments.precision}"
+                                                      shortDesc="#{bindings.DaTrackingProcessView1.hints.Comments.tooltip}"
+                                                      id="ity1">
+                                            <f:validator binding="#{row.bindings.Comments.validator}"/>
+                                        </af:inputText>
+                                    </af:column>
+                                </af:table>
+                                <f:facet name="statusbar"/>
+                            </af:panelCollection>
+                        </f:facet>
+                    </af:panelSplitter>
+                </f:facet>
+                <f:attribute name="page_title" value="Home"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_da_trackings-->
+</f:view>

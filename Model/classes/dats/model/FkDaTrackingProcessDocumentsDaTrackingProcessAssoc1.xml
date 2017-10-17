@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkDaTrackingProcessDocumentsDaTrackingProcessAssoc1"
+  Version="12.2.1.12.24"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="DaTrackingProcess4"
+    Cardinality="1"
+    Source="true"
+    Owner="dats.model.DaTrackingProcess">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="DaTrackingProcess4"/>
+      <Attr Name="_foreignKey" Value="dats.model.DaTrackingProcess.Primary1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dats.model.DaTrackingProcess.Id"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="DaTrackingProcessDocuments4"
+    Cardinality="-1"
+    Owner="dats.model.DaTrackingProcessDocuments">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="DaTrackingProcessDocuments4"/>
+      <Attr Name="_foreignKey"
+        Value="dats.model.DaTrackingProcessDocuments.FkDaTrackingProcessDocumentsDaTrackingProcess"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dats.model.DaTrackingProcessDocuments.DaTrackingProcessId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

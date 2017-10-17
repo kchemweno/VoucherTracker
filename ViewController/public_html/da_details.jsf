@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="DA Numbers" id="d1" binding="#{backingBeanScope.backing_da_details.d1}">
+        <af:messages id="m1" binding="#{backingBeanScope.backing_da_details.m1}"/>
+        <af:form id="f1" binding="#{backingBeanScope.backing_da_details.f1}">
+            <af:pageTemplate viewId="/disbursement_authorization_mainTemplate.jsf" value="#{bindings.ptb1}" id="pt1"
+                             binding="#{backingBeanScope.backing_da_details.pt1}">
+                <f:facet name="top"/>
+                <f:facet name="content">
+                    <af:panelCollection id="pc1" binding="#{backingBeanScope.backing_da_details.pc1}"
+                                        styleClass="AFStretchWidth">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t2" binding="#{backingBeanScope.backing_da_details.t2}">
+                               <af:button text="New DA" id="b4" binding="#{backingBeanScope.backing_da_details.b4}"
+                                          icon="#{resource['images:1495029302_12_-_Plus.png']}"
+                                          actionListener="#{bindings.CreateInsert.execute}"
+                                          disabled="#{!bindings.CreateInsert.enabled}"
+                                          visible='#{securityContext.userName == "skamau" || securityContext.userName == "nkibue" || securityContext.userName == "kchemweno" ? true : false}'/>
+                                <af:spacer width="10" height="10" id="s3"
+                                           binding="#{backingBeanScope.backing_da_details.s3}"/>
+                                <af:button text="O.K" id="b2" binding="#{backingBeanScope.backing_da_details.b2}"
+                                           actionListener="#{bindings.Commit.execute}"
+                                           disabled="#{!bindings.Commit.enabled}"
+                                           icon="#{resource['images:1495029165_f-check_256.png']}"/>
+                                <af:spacer width="10" height="10" id="s2"
+                                           binding="#{backingBeanScope.backing_da_details.s2}"/>
+                                <af:button text="Cancel" id="b3" binding="#{backingBeanScope.backing_da_details.b3}"
+                                           actionListener="#{bindings.Rollback.execute}"
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true"
+                                           icon="#{resource['images:cancel_small.png']}">
+                                    <af:resetActionListener/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s1"
+                                           binding="#{backingBeanScope.backing_da_details.s1}"/>
+                                <af:button text="Export" id="b1" binding="#{backingBeanScope.backing_da_details.b1}"
+                                           icon="#{resource['images:excel_export.png']}">
+                                    <af:exportCollectionActionListener type="excelHTML" exportedId="t1"
+                                                                       filename="DA_Numbers.xls" title="Da Numbers Detail"/>
+                                </af:button>
+                              
+                            </af:toolbar>
+                        </f:facet>
+                        <af:table value="#{bindings.DisbursementAuthorizations1View1.collectionModel}" var="row"
+                                  rows="#{bindings.DisbursementAuthorizations1View1.rangeSize}"
+                                  emptyText="#{bindings.DisbursementAuthorizations1View1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.DisbursementAuthorizations1View1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.DisbursementAuthorizations1View1.collectionModel.makeCurrent}"
+                                  rowSelection="single"
+                                  fetchSize="#{bindings.DisbursementAuthorizations1View1.rangeSize}"
+                                  filterModel="#{bindings.DisbursementAuthorizations1View1Query.queryDescriptor}"
+                                  filterVisible="true"
+                                  queryListener="#{bindings.DisbursementAuthorizations1View1Query.processQuery}"
+                                  varStatus="vs" id="t1" binding="#{backingBeanScope.backing_da_details.t1}"
+                                  columnStretching="last" editingMode="clickToEdit" partialTriggers="::b4">
+                            <af:column sortProperty="#{bindings.DisbursementAuthorizations1View1.hints.DaNumber.name}"
+                                       filterable="true" sortable="true" headerText="DA Number" id="c1" width="100">
+                                <af:inputText value="#{row.bindings.DaNumber.inputValue}"
+                                              label="#{bindings.DisbursementAuthorizations1View1.hints.DaNumber.label}"
+                                              required="#{bindings.DisbursementAuthorizations1View1.hints.DaNumber.mandatory}"
+                                              columns="#{bindings.DisbursementAuthorizations1View1.hints.DaNumber.displayWidth}"
+                                              maximumLength="#{bindings.DisbursementAuthorizations1View1.hints.DaNumber.precision}"
+                                              shortDesc="#{bindings.DisbursementAuthorizations1View1.hints.DaNumber.tooltip}"
+                                              id="it1">
+                                    <f:validator binding="#{row.bindings.DaNumber.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.DisbursementAuthorizations1View1.hints.TotalValue.name}"
+                                       filterable="true" sortable="true" headerText="Total Value" id="c2" width="100">
+                                <af:inputText value="#{row.bindings.TotalValue.inputValue}"
+                                              label="#{bindings.DisbursementAuthorizations1View1.hints.TotalValue.label}"
+                                              required="#{bindings.DisbursementAuthorizations1View1.hints.TotalValue.mandatory}"
+                                              columns="#{bindings.DisbursementAuthorizations1View1.hints.TotalValue.displayWidth}"
+                                              maximumLength="#{bindings.DisbursementAuthorizations1View1.hints.TotalValue.precision}"
+                                              shortDesc="#{bindings.DisbursementAuthorizations1View1.hints.TotalValue.tooltip}"
+                                              id="it2">
+                                    <f:validator binding="#{row.bindings.TotalValue.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.DisbursementAuthorizations1View1.hints.TotalValue.format}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.DisbursementAuthorizations1View1.hints.NumberOfBeneficiaries.name}"
+                                       filterable="true" sortable="true" headerText="Beneficiaries" id="c3" width="100">
+                                <af:inputText value="#{row.bindings.NumberOfBeneficiaries.inputValue}"
+                                              label="#{bindings.DisbursementAuthorizations1View1.hints.NumberOfBeneficiaries.label}"
+                                              required="#{bindings.DisbursementAuthorizations1View1.hints.NumberOfBeneficiaries.mandatory}"
+                                              columns="#{bindings.DisbursementAuthorizations1View1.hints.NumberOfBeneficiaries.displayWidth}"
+                                              maximumLength="#{bindings.DisbursementAuthorizations1View1.hints.NumberOfBeneficiaries.precision}"
+                                              shortDesc="#{bindings.DisbursementAuthorizations1View1.hints.NumberOfBeneficiaries.tooltip}"
+                                              id="it3">
+                                    <f:validator binding="#{row.bindings.NumberOfBeneficiaries.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.DisbursementAuthorizations1View1.hints.NumberOfBeneficiaries.format}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.DisbursementAuthorizations1View1.hints.NgoId.name}"
+                                       filterable="true" sortable="true" headerText="NGO" id="c4" width="180">
+                                <af:selectOneChoice value="#{row.bindings.NgoId.inputValue}"
+                                                    label="#{row.bindings.NgoId.label}"
+                                                    required="#{bindings.DisbursementAuthorizations1View1.hints.NgoId.mandatory}"
+                                                    shortDesc="#{bindings.DisbursementAuthorizations1View1.hints.NgoId.tooltip}"
+                                                    id="soc1">
+                                    <f:selectItems value="#{row.bindings.NgoId.items}" id="si1"/>
+                                    <f:validator binding="#{row.bindings.NgoId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.DisbursementAuthorizations1View1.hints.LoaNumber.name}"
+                                       filterable="true" sortable="true" headerText="LOA Number" id="c5" width="130">
+                                <af:inputText value="#{row.bindings.LoaNumber.inputValue}"
+                                              label="#{bindings.DisbursementAuthorizations1View1.hints.LoaNumber.label}"
+                                              required="#{bindings.DisbursementAuthorizations1View1.hints.LoaNumber.mandatory}"
+                                              columns="#{bindings.DisbursementAuthorizations1View1.hints.LoaNumber.displayWidth}"
+                                              maximumLength="#{bindings.DisbursementAuthorizations1View1.hints.LoaNumber.precision}"
+                                              shortDesc="#{bindings.DisbursementAuthorizations1View1.hints.LoaNumber.tooltip}"
+                                              id="it4">
+                                    <f:validator binding="#{row.bindings.LoaNumber.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.DisbursementAuthorizations1View1.hints.DistrictId.name}"
+                                       filterable="true" sortable="true" headerText="District" id="c6" width="182">
+                                <af:selectOneChoice value="#{row.bindings.DistrictId.inputValue}"
+                                                    label="#{row.bindings.DistrictId.label}"
+                                                    required="#{bindings.DisbursementAuthorizations1View1.hints.DistrictId.mandatory}"
+                                                    shortDesc="#{bindings.DisbursementAuthorizations1View1.hints.DistrictId.tooltip}"
+                                                    id="soc2">
+                                    <f:selectItems value="#{row.bindings.DistrictId.items}" id="si2"/>
+                                    <f:validator binding="#{row.bindings.DistrictId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.DisbursementAuthorizations1View1.hints.PhaseId.name}"
+                                       filterable="true" sortable="true" headerText="Phase" id="c7" width="103">
+                                <af:selectOneChoice value="#{row.bindings.PhaseId.inputValue}"
+                                                    label="#{row.bindings.PhaseId.label}"
+                                                    required="#{bindings.DisbursementAuthorizations1View1.hints.PhaseId.mandatory}"
+                                                    shortDesc="#{bindings.DisbursementAuthorizations1View1.hints.PhaseId.tooltip}"
+                                                    id="soc3">
+                                    <f:selectItems value="#{row.bindings.PhaseId.items}" id="si3"/>
+                                    <f:validator binding="#{row.bindings.PhaseId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.DisbursementAuthorizations1View1.hints.InterventionTypeId.name}"
+                                       filterable="true" sortable="true" headerText="Intervention Type" id="c8"
+                                       width="149">
+                                <af:selectOneChoice value="#{row.bindings.InterventionTypeId.inputValue}"
+                                                    label="#{row.bindings.InterventionTypeId.label}"
+                                                    required="#{bindings.DisbursementAuthorizations1View1.hints.InterventionTypeId.mandatory}"
+                                                    shortDesc="#{bindings.DisbursementAuthorizations1View1.hints.InterventionTypeId.tooltip}"
+                                                    id="soc4">
+                                    <f:selectItems value="#{row.bindings.InterventionTypeId.items}" id="si4"/>
+                                    <f:validator binding="#{row.bindings.InterventionTypeId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.DisbursementAuthorizations1View1.hints.Description.name}"
+                                       filterable="true" sortable="true" headerText="Comments" id="c9" width="-144">
+                                <af:inputText value="#{row.bindings.Description.inputValue}"
+                                              label="#{bindings.DisbursementAuthorizations1View1.hints.Description.label}"
+                                              required="#{bindings.DisbursementAuthorizations1View1.hints.Description.mandatory}"
+                                              columns="#{bindings.DisbursementAuthorizations1View1.hints.Description.displayWidth}"
+                                              maximumLength="#{bindings.DisbursementAuthorizations1View1.hints.Description.precision}"
+                                              shortDesc="#{bindings.DisbursementAuthorizations1View1.hints.Description.tooltip}"
+                                              id="it5">
+                                    <f:validator binding="#{row.bindings.Description.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                        <f:facet name="statusbar"/>
+                    </af:panelCollection>
+                </f:facet>
+                <f:attribute name="page_title" value="DA Numbers"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_da_details-->
+</f:view>

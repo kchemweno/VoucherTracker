@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24" id="dasPageDef"
+                Package="dats.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="dats.view.pageDefs.disbursement_authorization_mainTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="DisbursementAuthorizationsView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="DisbursementAuthorizationsView1Iterator"/>
+    <searchRegion Binds="DisbursementAuthorizationsView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="DisbursementAuthorizationsView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DisbursementAuthorizationsView1Iterator" id="DisbursementAuthorizationsView1">
+      <nodeDefinition DefName="dats.model.DisbursementAuthorizationsView" Name="DisbursementAuthorizationsView10">
+        <AttrNames>
+          <Item Value="DaNumber"/>
+          <Item Value="TotalValue"/>
+          <Item Value="NumberOfBeneficiaries"/>
+          <Item Value="DistrictId"/>
+          <Item Value="LoaNumber"/>
+          <Item Value="NgoId"/>
+          <Item Value="InterventionTypeId"/>
+          <Item Value="Description"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

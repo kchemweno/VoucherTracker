@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24" id="usersPageDef"
+                Package="dats.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="dats.view.pageDefs.disbursement_authorization_mainTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="UsersView1" RangeSize="25" DataControl="AppModuleDataControl" id="UsersView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="UsersView1Iterator" id="UsersView1">
+      <nodeDefinition DefName="dats.model.UsersView" Name="UsersView10">
+        <AttrNames>
+          <Item Value="Firstname"/>
+          <Item Value="Lastname"/>
+          <Item Value="Othername"/>
+          <Item Value="Username"/>
+          <Item Value="Password"/>
+          <Item Value="Gender"/>
+          <Item Value="PhoneMobile"/>
+          <Item Value="PhoneOffice"/>
+          <Item Value="Email"/>
+          <Item Value="UnitId"/>
+          <Item Value="GroupId"/>
+          <Item Value="Description"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="UsersView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

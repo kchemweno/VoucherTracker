@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24"
+                id="task_flow_updateSteps3To15_task_flow_updateSteps3To15_insertDaStepDetailsPageDef"
+                Package="dats.view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="insertDaStepDetailsProgress" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="insertDaStepDetailsProgress" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.insertDaStepDetailsProgress.dataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.insertDaStepDetailsProgress_insertDaStepDetailsProgress_dataControl_dataProvider_insertDaStepDetailsProgress_result">
+      <NamedData NDName="stepId" NDValue="#{backingBeanScope.backing_da_trackings.daStepId}" NDType="int"/>
+      <NamedData NDName="userId" NDValue="#{backingBeanScope.backing_da_trackings.loggedInUserId}" NDType="int"/>
+      <NamedData NDName="daId" NDValue="#{backingBeanScope.backing_da_trackings.stepDaId}" NDType="int"/>
+      <NamedData NDName="comments" NDValue="#{backingBeanScope.backing_da_trackings.stepComments}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

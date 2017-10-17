@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PaymentLocationsView"
+  Version="12.2.1.12.24"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="PaymentLocations"
+    Entity="dats.model.PaymentLocations"/>
+  <ViewAttribute
+    Name="Id"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="PaymentLocations"
+    AliasName="id"/>
+  <ViewAttribute
+    Name="RegionId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RegionId"
+    EntityUsage="PaymentLocations"
+    AliasName="region_id"/>
+  <ViewAttribute
+    Name="DistrictId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DistrictId"
+    EntityUsage="PaymentLocations"
+    AliasName="district_id"/>
+  <ViewAttribute
+    Name="PaymentLocationName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PaymentLocationName"
+    EntityUsage="PaymentLocations"
+    AliasName="payment_location_name"/>
+  <ViewAttribute
+    Name="IsActive"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IsActive"
+    EntityUsage="PaymentLocations"
+    AliasName="is_active"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="PaymentLocations"
+    AliasName="description"/>
+</ViewObject>

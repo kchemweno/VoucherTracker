@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DisbursementAuthorizations1"
+  Version="12.2.1.12.24"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="disbursement_authorizations"
+  AliasName="DisbursementAuthorizations1"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="Id"
+    ColumnName="id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="disbursement_authorizations"
+    PrimaryKey="true"
+    IsUpdateable="while_insert">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DaNumber"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="da_number"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="disbursement_authorizations">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TotalValue"
+    ColumnName="total_value"
+    SQLType="FLOAT"
+    Type="java.lang.Float"
+    ColumnType="FLOAT"
+    TableName="disbursement_authorizations">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="12"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NumberOfBeneficiaries"
+    ColumnName="number_of_beneficiaries"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="disbursement_authorizations">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NgoId"
+    ColumnName="ngo_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="disbursement_authorizations">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LoaNumber"
+    Precision="50"
+    ColumnName="loa_number"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="disbursement_authorizations">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DistrictId"
+    ColumnName="district_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="disbursement_authorizations">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PaymentLocation"
+    Precision="150"
+    ColumnName="payment_location"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="disbursement_authorizations">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MoneyVendorId"
+    ColumnName="money_vendor_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="disbursement_authorizations">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IsActive"
+    ColumnName="is_active"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="disbursement_authorizations"
+    IsUpdateable="while_insert">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Description"
+    Precision="150"
+    ColumnName="description"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="disbursement_authorizations">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PhaseId"
+    ColumnName="phase_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="disbursement_authorizations">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InterventionTypeId"
+    ColumnName="intervention_type_id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="disbursement_authorizations">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Phase"
+    Precision="50"
+    ColumnName="phase"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="disbursement_authorizations">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="DisbursementAuthorizations1"
+    Association="dats.model.FkDisbursementAuthorizationsNgosAssoc"
+    AssociationEnd="dats.model.FkDisbursementAuthorizationsNgosAssoc.DisbursementAuthorizations1"
+    AssociationOtherEnd="dats.model.FkDisbursementAuthorizationsNgosAssoc.NgoIdDisbursementAuthorizations1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="NgoIdDisbursementAuthorizations1"
+    Association="dats.model.FkDisbursementAuthorizationsNgosAssoc"
+    AssociationEnd="dats.model.FkDisbursementAuthorizationsNgosAssoc.NgoIdDisbursementAuthorizations1"
+    AssociationOtherEnd="dats.model.FkDisbursementAuthorizationsNgosAssoc.DisbursementAuthorizations1"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="DisbursementAuthorizations11"
+    Association="dats.model.FkDisbursementAuthorizationsInterventionTypesAssoc"
+    AssociationEnd="dats.model.FkDisbursementAuthorizationsInterventionTypesAssoc.DisbursementAuthorizations11"
+    AssociationOtherEnd="dats.model.FkDisbursementAuthorizationsInterventionTypesAssoc.InterventionTypeIdDisbursementAuthorizations1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="InterventionTypeIdDisbursementAuthorizations1"
+    Association="dats.model.FkDisbursementAuthorizationsInterventionTypesAssoc"
+    AssociationEnd="dats.model.FkDisbursementAuthorizationsInterventionTypesAssoc.InterventionTypeIdDisbursementAuthorizations1"
+    AssociationOtherEnd="dats.model.FkDisbursementAuthorizationsInterventionTypesAssoc.DisbursementAuthorizations11"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="DisbursementAuthorizations12"
+    Association="dats.model.FkDisbursementAuthorizationsDistrictsAssoc"
+    AssociationEnd="dats.model.FkDisbursementAuthorizationsDistrictsAssoc.DisbursementAuthorizations12"
+    AssociationOtherEnd="dats.model.FkDisbursementAuthorizationsDistrictsAssoc.DistrictIdDisbursementAuthorizations1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DistrictIdDisbursementAuthorizations1"
+    Association="dats.model.FkDisbursementAuthorizationsDistrictsAssoc"
+    AssociationEnd="dats.model.FkDisbursementAuthorizationsDistrictsAssoc.DistrictIdDisbursementAuthorizations1"
+    AssociationOtherEnd="dats.model.FkDisbursementAuthorizationsDistrictsAssoc.DisbursementAuthorizations12"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dats.model.DisbursementAuthorizations1.Id"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkDisbursementAuthorizationsDistricts">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_disbursement_authorizations__districts"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dats.model.DisbursementAuthorizations1.DistrictId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkDisbursementAuthorizationsInterventionTypes">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_disbursement_authorizations__intervention_types"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dats.model.DisbursementAuthorizations1.InterventionTypeId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="FkDisbursementAuthorizationsNgos">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="FK_disbursement_authorizations__ngos"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dats.model.DisbursementAuthorizations1.NgoId"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24" id="da_trackingsPageDef"
+                Package="dats.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="dats.view.pageDefs.disbursement_authorization_mainTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="DaTrackingProcessView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="DaTrackingProcessView1Iterator"/>
+    <searchRegion Binds="DaTrackingProcessView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DaTrackingProcessView1Query"/>
+    <iterator Binds="PhasesView1" RangeSize="10" DataControl="AppModuleDataControl" id="PhasesView1Iterator"/>
+    <iterator Binds="DisbursementAuthorizations1View1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="DisbursementAuthorizations1View1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DaTrackingProcessView1Iterator" id="DaTrackingProcessView1">
+      <nodeDefinition DefName="dats.model.DaTrackingProcessView" Name="DaTrackingProcessView10">
+        <AttrNames>
+          <Item Value="DaId"/>
+          <Item Value="StepId"/>
+          <Item Value="UserId"/>
+          <Item Value="DateEntered"/>
+          <Item Value="Comments"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="DaTrackingProcessView1Iterator" StaticList="false" Uses="LOV_DaId" id="DaId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <methodAction id="insertRequestDaFileDetails" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="insertRequestDaFileDetails" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.insertRequestDaFileDetails.dataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.insertRequestDaFileDetails_insertRequestDaFileDetails_dataControl_dataProvider_insertRequestDaFileDetails_result">
+      <NamedData NDName="stepId" NDValue="#{backingBeanScope.backing_da_trackings.requestDaStepId}" NDType="int"/>
+      <NamedData NDName="daId" NDValue="#{backingBeanScope.backing_da_trackings.requestDaDaId}" NDType="int"/>
+      <NamedData NDName="documentName" NDValue="#{backingBeanScope.backing_da_trackings.requestDaFilename}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="documentLocation" NDValue="#{backingBeanScope.backing_da_trackings.requestDaFileLocation}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="description" NDValue="#{backingBeanScope.backing_da_trackings.requestDaComments}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="insertDaStepDetailsProgress" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="insertDaStepDetailsProgress" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.insertDaStepDetailsProgress.dataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.insertDaStepDetailsProgress_insertDaStepDetailsProgress_dataControl_dataProvider_insertDaStepDetailsProgress_result">
+      <NamedData NDName="stepId" NDValue="#{backingBeanScope.backing_da_trackings.daStepId}" NDType="int"/>
+      <NamedData NDName="userId" NDValue="#{backingBeanScope.backing_da_trackings.loggedInUserId}" NDType="int"/>
+      <NamedData NDName="daId" NDValue="#{backingBeanScope.backing_da_trackings.stepDaId}" NDType="int"/>
+      <NamedData NDName="comments" NDValue="#{backingBeanScope.backing_da_trackings.stepComments}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="DisbursementAuthorizations1View1Iterator" id="DaNumber">
+      <AttrNames>
+        <Item Value="DaNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DisbursementAuthorizations1View1Iterator" id="TotalValue">
+      <AttrNames>
+        <Item Value="TotalValue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DisbursementAuthorizations1View1Iterator" id="NumberOfBeneficiaries">
+      <AttrNames>
+        <Item Value="NumberOfBeneficiaries"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DisbursementAuthorizations1View1Iterator" StaticList="false" Uses="LOV_NgoId" id="NgoId1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="DisbursementAuthorizations1View1Iterator" id="LoaNumber1">
+      <AttrNames>
+        <Item Value="LoaNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DisbursementAuthorizations1View1Iterator" StaticList="false" Uses="LOV_DistrictId"
+          id="DistrictId1" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="DisbursementAuthorizations1View1Iterator" StaticList="false" Uses="LOV_PhaseId" id="PhaseId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="DisbursementAuthorizations1View1Iterator" StaticList="false" Uses="LOV_InterventionTypeId"
+          id="InterventionTypeId1" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="DisbursementAuthorizations1View1Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="insertGenerateDaDetails" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="insertGenerateDaDetails" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="bindings.insertGenerateDaDetails.dataControl.dataProvider"
+                  ReturnName="data.AppModuleDataControl.methodResults.insertGenerateDaDetails_insertGenerateDaDetails_dataControl_dataProvider_insertGenerateDaDetails_result">
+      <NamedData NDName="totalValue" NDValue="#{backingBeanScope.backing_da_trackings.totalValue}" NDType="float"/>
+      <NamedData NDName="beneficiariesNumber"
+                 NDValue="#{backingBeanScope.backing_da_trackings.generateDaNumberOfBeneficiaries}" NDType="int"/>
+      <NamedData NDName="districtId" NDValue="#{backingBeanScope.backing_da_trackings.districtId}" NDType="int"/>
+      <NamedData NDName="ngoId" NDValue="#{backingBeanScope.backing_da_trackings.generateDaNgoId}" NDType="int"/>
+      <NamedData NDName="interventionTypeId"
+                 NDValue="#{backingBeanScope.backing_da_trackings.generateDAInterventionTypeId}" NDType="int"/>
+      <NamedData NDName="phaseId" NDValue="#{backingBeanScope.backing_da_trackings.generateDaPhaseId}" NDType="int"/>
+      <NamedData NDName="daNumber" NDValue="#{backingBeanScope.backing_da_trackings.generateDaDaNumber}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="loaNumber" NDValue="#{backingBeanScope.backing_da_trackings.generateDaLoaNumber}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="comments" NDValue="#{backingBeanScope.backing_da_trackings.stepComments}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

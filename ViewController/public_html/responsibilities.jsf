@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="responsibilities.jsf" id="d1" binding="#{backingBeanScope.backing_responsibilities.d1}">
+        <af:messages id="m1" binding="#{backingBeanScope.backing_responsibilities.m1}"/>
+        <af:form id="f1" binding="#{backingBeanScope.backing_responsibilities.f1}">
+            <af:pageTemplate viewId="/disbursement_authorization_mainTemplate.jsf" value="#{bindings.ptb1}" id="pt1"
+                             binding="#{backingBeanScope.backing_responsibilities.pt1}">
+                <f:facet name="top"/>
+                <f:facet name="content">
+                    <af:panelCollection id="pc1" binding="#{backingBeanScope.backing_responsibilities.pc1}"
+                                        inlineStyle="width:1834px;">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t1" binding="#{backingBeanScope.backing_responsibilities.t1}">
+                                <af:button text="Add Responsibility" id="b3"
+                                           binding="#{backingBeanScope.backing_responsibilities.b3}"
+                                           icon="#{resource['images:1495029302_12_-_Plus.png']}"
+                                           actionListener="#{bindings.CreateInsert.execute}"
+                                           disabled="#{!bindings.CreateInsert.enabled}"/>
+                                <af:spacer width="10" height="10" id="s2"
+                                           binding="#{backingBeanScope.backing_responsibilities.s2}"/>
+                                <af:button text="O.K" id="b1"
+                                           binding="#{backingBeanScope.backing_responsibilities.b1}"
+                                           actionListener="#{bindings.Commit.execute}"
+                                           disabled="#{!bindings.Commit.enabled}"
+                                           icon="#{resource['images:1495029165_f-check_256.png']}"/>
+                                <af:spacer width="10" height="10" id="s1"
+                                           binding="#{backingBeanScope.backing_responsibilities.s1}"/>
+                                <af:button text="Cancel" id="b2"
+                                           binding="#{backingBeanScope.backing_responsibilities.b2}"
+                                           actionListener="#{bindings.Rollback.execute}"
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true"
+                                           icon="#{resource['images:cancel_small.png']}">
+                                    <af:resetActionListener/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <af:table value="#{bindings.StepResponsiblePersonsView1.collectionModel}" var="row"
+                                  rows="#{bindings.StepResponsiblePersonsView1.rangeSize}"
+                                  emptyText="#{bindings.StepResponsiblePersonsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.StepResponsiblePersonsView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.StepResponsiblePersonsView1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.StepResponsiblePersonsView1.rangeSize}"
+                                  filterModel="#{bindings.StepResponsiblePersonsView1Query.queryDescriptor}"
+                                  filterVisible="true"
+                                  queryListener="#{bindings.StepResponsiblePersonsView1Query.processQuery}"
+                                  varStatus="vs" id="t2" binding="#{backingBeanScope.backing_responsibilities.t2}"
+                                  columnStretching="column:c1" editingMode="clickToEdit" partialTriggers="::b3">
+                            <af:column sortProperty="#{bindings.StepResponsiblePersonsView1.hints.StepId.name}"
+                                       filterable="true" sortable="true" headerText="Step" id="c1" width="308"
+                                       align="center" inlineStyle="text-align:left;">
+                                <af:selectOneChoice value="#{row.bindings.StepId.inputValue}"
+                                                    label="#{row.bindings.StepId.label}"
+                                                    required="#{bindings.StepResponsiblePersonsView1.hints.StepId.mandatory}"
+                                                    shortDesc="#{bindings.StepResponsiblePersonsView1.hints.StepId.tooltip}"
+                                                    id="soc1">
+                                    <f:selectItems value="#{row.bindings.StepId.items}" id="si1"/>
+                                    <f:validator binding="#{row.bindings.StepId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.StepResponsiblePersonsView1.hints.UserId.name}"
+                                       filterable="true" sortable="true" headerText="Responsible Person" id="c2"
+                                       width="245" align="center" inlineStyle="text-align:left;">
+                                <af:selectOneChoice value="#{row.bindings.UserId.inputValue}"
+                                                    label="#{row.bindings.UserId.label}"
+                                                    required="#{bindings.StepResponsiblePersonsView1.hints.UserId.mandatory}"
+                                                    shortDesc="#{bindings.StepResponsiblePersonsView1.hints.UserId.tooltip}"
+                                                    id="soc2">
+                                    <f:selectItems value="#{row.bindings.UserId.items}" id="si2"/>
+                                    <f:validator binding="#{row.bindings.UserId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.StepResponsiblePersonsView1.hints.Comments.name}"
+                                       filterable="true" sortable="true" headerText="Comments" id="c3" width="773">
+                                <af:inputText value="#{row.bindings.Comments.inputValue}"
+                                              label="#{bindings.StepResponsiblePersonsView1.hints.Comments.label}"
+                                              required="#{bindings.StepResponsiblePersonsView1.hints.Comments.mandatory}"
+                                              columns="#{bindings.StepResponsiblePersonsView1.hints.Comments.displayWidth}"
+                                              maximumLength="#{bindings.StepResponsiblePersonsView1.hints.Comments.precision}"
+                                              shortDesc="#{bindings.StepResponsiblePersonsView1.hints.Comments.tooltip}"
+                                              id="it1">
+                                    <f:validator binding="#{row.bindings.Comments.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                        <f:facet name="statusbar"/>
+                    </af:panelCollection>
+                </f:facet>
+                <f:attribute name="page_title" value="Responsibilities"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_responsibilities-->
+</f:view>

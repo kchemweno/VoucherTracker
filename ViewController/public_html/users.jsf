@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="users.jsf" id="d1" binding="#{backingBeanScope.backing_users.d1}">
+        <af:messages id="m1" binding="#{backingBeanScope.backing_users.m1}"/>
+        <af:form id="f1" binding="#{backingBeanScope.backing_users.f1}">
+            <af:pageTemplate viewId="/disbursement_authorization_mainTemplate.jsf" value="#{bindings.ptb1}" id="pt1"
+                             binding="#{backingBeanScope.backing_users.pt1}">
+                <f:facet name="top"/>
+                <f:facet name="content">
+                    <af:panelCollection id="pc1" binding="#{backingBeanScope.backing_users.pc1}">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t1" binding="#{backingBeanScope.backing_users.t1}">
+                                <af:button text="New User" id="b1" binding="#{backingBeanScope.backing_users.b1}"
+                                           actionListener="#{bindings.CreateInsert.execute}"
+                                           disabled="#{!bindings.CreateInsert.enabled}"
+                                           icon="#{resource['images:new_booking_small_blue.png']}"/>
+                                <af:spacer width="10" height="10" id="s1"
+                                           binding="#{backingBeanScope.backing_users.s1}"/>
+                                <af:button text="O.K" id="b2" binding="#{backingBeanScope.backing_users.b2}"
+                                           actionListener="#{bindings.Commit.execute}"
+                                           disabled="#{!bindings.Commit.enabled}"
+                                           icon="#{resource['images:1495029165_f-check_256.png']}"/>
+                                <af:spacer width="10" height="10" id="s2"
+                                           binding="#{backingBeanScope.backing_users.s2}"/>
+                                <af:button text="Cancel" id="b3" binding="#{backingBeanScope.backing_users.b3}"
+                                           actionListener="#{bindings.Rollback.execute}"
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true"
+                                           icon="#{resource['images:cancel_small.png']}">
+                                    <af:resetActionListener/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <af:table value="#{bindings.UsersView1.collectionModel}" var="row"
+                                  rows="#{bindings.UsersView1.rangeSize}"
+                                  emptyText="#{bindings.UsersView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.UsersView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.UsersView1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.UsersView1.rangeSize}" id="t2"
+                                  binding="#{backingBeanScope.backing_users.t2}" editingMode="clickToEdit"
+                                  partialTriggers="::b1">
+                            <af:column sortProperty="#{bindings.UsersView1.hints.Firstname.name}" sortable="true"
+                                       headerText="First Name" id="c1" width="100">
+                                <af:inputText value="#{row.bindings.Firstname.inputValue}"
+                                              label="#{bindings.UsersView1.hints.Firstname.label}"
+                                              required="#{bindings.UsersView1.hints.Firstname.mandatory}"
+                                              columns="#{bindings.UsersView1.hints.Firstname.displayWidth}"
+                                              maximumLength="#{bindings.UsersView1.hints.Firstname.precision}"
+                                              shortDesc="#{bindings.UsersView1.hints.Firstname.tooltip}" id="it1">
+                                    <f:validator binding="#{row.bindings.Firstname.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.Lastname.name}" sortable="true"
+                                       headerText="Last Name" id="c2" width="100">
+                                <af:inputText value="#{row.bindings.Lastname.inputValue}"
+                                              label="#{bindings.UsersView1.hints.Lastname.label}"
+                                              required="#{bindings.UsersView1.hints.Lastname.mandatory}"
+                                              columns="#{bindings.UsersView1.hints.Lastname.displayWidth}"
+                                              maximumLength="#{bindings.UsersView1.hints.Lastname.precision}"
+                                              shortDesc="#{bindings.UsersView1.hints.Lastname.tooltip}" id="it2">
+                                    <f:validator binding="#{row.bindings.Lastname.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.Othername.name}" sortable="true"
+                                       headerText="Other Name" id="c3" width="100">
+                                <af:inputText value="#{row.bindings.Othername.inputValue}"
+                                              label="#{bindings.UsersView1.hints.Othername.label}"
+                                              required="#{bindings.UsersView1.hints.Othername.mandatory}"
+                                              columns="#{bindings.UsersView1.hints.Othername.displayWidth}"
+                                              maximumLength="#{bindings.UsersView1.hints.Othername.precision}"
+                                              shortDesc="#{bindings.UsersView1.hints.Othername.tooltip}" id="it3">
+                                    <f:validator binding="#{row.bindings.Othername.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.Username.name}" sortable="true"
+                                       headerText="#{bindings.UsersView1.hints.Username.label}" id="c4" width="100">
+                                <af:inputText value="#{row.bindings.Username.inputValue}"
+                                              label="#{bindings.UsersView1.hints.Username.label}"
+                                              required="#{bindings.UsersView1.hints.Username.mandatory}"
+                                              columns="#{bindings.UsersView1.hints.Username.displayWidth}"
+                                              maximumLength="#{bindings.UsersView1.hints.Username.precision}"
+                                              shortDesc="#{bindings.UsersView1.hints.Username.tooltip}" id="it4">
+                                    <f:validator binding="#{row.bindings.Username.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.Password.name}" sortable="true"
+                                       headerText="#{bindings.UsersView1.hints.Password.label}" id="c5" width="100">
+                                <af:inputText value="#{row.bindings.Password.inputValue}"
+                                              label="#{bindings.UsersView1.hints.Password.label}"
+                                              required="#{bindings.UsersView1.hints.Password.mandatory}"
+                                              columns="#{bindings.UsersView1.hints.Password.displayWidth}"
+                                              maximumLength="#{bindings.UsersView1.hints.Password.precision}"
+                                              shortDesc="#{bindings.UsersView1.hints.Password.tooltip}" id="it5"
+                                              secret="true">
+                                    <f:validator binding="#{row.bindings.Password.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.Gender.name}" sortable="true"
+                                       headerText="#{bindings.UsersView1.hints.Gender.label}" id="c6" width="100">
+                                <af:inputText value="#{row.bindings.Gender.inputValue}"
+                                              label="#{bindings.UsersView1.hints.Gender.label}"
+                                              required="#{bindings.UsersView1.hints.Gender.mandatory}"
+                                              columns="#{bindings.UsersView1.hints.Gender.displayWidth}"
+                                              maximumLength="#{bindings.UsersView1.hints.Gender.precision}"
+                                              shortDesc="#{bindings.UsersView1.hints.Gender.tooltip}" id="it6">
+                                    <f:validator binding="#{row.bindings.Gender.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.PhoneMobile.name}" sortable="true"
+                                       headerText="Mobile Number" id="c7" width="100">
+                                <af:inputText value="#{row.bindings.PhoneMobile.inputValue}"
+                                              label="#{bindings.UsersView1.hints.PhoneMobile.label}"
+                                              required="#{bindings.UsersView1.hints.PhoneMobile.mandatory}"
+                                              columns="#{bindings.UsersView1.hints.PhoneMobile.displayWidth}"
+                                              maximumLength="#{bindings.UsersView1.hints.PhoneMobile.precision}"
+                                              shortDesc="#{bindings.UsersView1.hints.PhoneMobile.tooltip}" id="it7">
+                                    <f:validator binding="#{row.bindings.PhoneMobile.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.PhoneOffice.name}" sortable="true"
+                                       headerText="Office Phone" id="c8" width="100">
+                                <af:inputText value="#{row.bindings.PhoneOffice.inputValue}"
+                                              label="#{bindings.UsersView1.hints.PhoneOffice.label}"
+                                              required="#{bindings.UsersView1.hints.PhoneOffice.mandatory}"
+                                              columns="#{bindings.UsersView1.hints.PhoneOffice.displayWidth}"
+                                              maximumLength="#{bindings.UsersView1.hints.PhoneOffice.precision}"
+                                              shortDesc="#{bindings.UsersView1.hints.PhoneOffice.tooltip}" id="it8">
+                                    <f:validator binding="#{row.bindings.PhoneOffice.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.Email.name}" sortable="true"
+                                       headerText="#{bindings.UsersView1.hints.Email.label}" id="c9" width="100">
+                                <af:inputText value="#{row.bindings.Email.inputValue}"
+                                              label="#{bindings.UsersView1.hints.Email.label}"
+                                              required="#{bindings.UsersView1.hints.Email.mandatory}"
+                                              columns="#{bindings.UsersView1.hints.Email.displayWidth}"
+                                              maximumLength="#{bindings.UsersView1.hints.Email.precision}"
+                                              shortDesc="#{bindings.UsersView1.hints.Email.tooltip}" id="it9">
+                                    <f:validator binding="#{row.bindings.Email.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.UnitId.name}" sortable="true"
+                                       headerText="Unit" id="c11">
+                                <af:selectOneChoice value="#{row.bindings.UnitId.inputValue}"
+                                                    label="#{row.bindings.UnitId.label}"
+                                                    required="#{bindings.UsersView1.hints.UnitId.mandatory}"
+                                                    shortDesc="#{bindings.UsersView1.hints.UnitId.tooltip}" id="soc1">
+                                    <f:selectItems value="#{row.bindings.UnitId.items}" id="si1"/>
+                                    <f:validator binding="#{row.bindings.UnitId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.GroupId.name}" sortable="true"
+                                       headerText="Group" id="c12">
+                                <af:selectOneChoice value="#{row.bindings.GroupId.inputValue}"
+                                                    label="#{row.bindings.GroupId.label}"
+                                                    required="#{bindings.UsersView1.hints.GroupId.mandatory}"
+                                                    shortDesc="#{bindings.UsersView1.hints.GroupId.tooltip}" id="soc2">
+                                    <f:selectItems value="#{row.bindings.GroupId.items}" id="si2"/>
+                                    <f:validator binding="#{row.bindings.GroupId.validator}"/>
+                                </af:selectOneChoice>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.UsersView1.hints.Description.name}" sortable="true"
+                                       headerText="Comments" id="c10" width="442">
+                                <af:inputText value="#{row.bindings.Description.inputValue}"
+                                              label="#{bindings.UsersView1.hints.Description.label}"
+                                              required="#{bindings.UsersView1.hints.Description.mandatory}"
+                                              columns="#{bindings.UsersView1.hints.Description.displayWidth}"
+                                              maximumLength="#{bindings.UsersView1.hints.Description.precision}"
+                                              shortDesc="#{bindings.UsersView1.hints.Description.tooltip}" id="it10">
+                                    <f:validator binding="#{row.bindings.Description.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                        <f:facet name="statusbar"/>
+                    </af:panelCollection>
+                </f:facet>
+                <f:attribute name="page_title" value="Users"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_users-->
+</f:view>

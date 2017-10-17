@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24" id="Step4PageDef"
+                Package="dats.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DaTrackingProcessView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="DaTrackingProcessView1Iterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="DaTrackingProcessView1Iterator" StaticList="false" Uses="LOV_DaId" id="DaId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="DaTrackingProcessView1Iterator" StaticList="false" Uses="LOV_StepId" id="StepId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="DaTrackingProcessView1Iterator" id="Comments">
+      <AttrNames>
+        <Item Value="Comments"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

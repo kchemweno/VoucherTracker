@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DistrictsView"
+  Version="12.2.1.12.24"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  RowClass="dats.model.DistrictsViewRowImpl"
+  ComponentClass="dats.model.DistrictsViewImpl"
+  DefClass="dats.model.DistrictsViewDefImpl"
+  RowInterface="dats.model.common.DistrictsViewRow">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Def|Coll|Prog|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="DistrictsView1"
+    ViewObjectName="dats.model.DistrictsView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Id"
+    ListVOName="DistrictsView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Title"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Districts"
+    Entity="dats.model.Districts"/>
+  <ViewAttribute
+    Name="Id"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="Districts"
+    AliasName="id"
+    LOVName="LOV_Id">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RegionId"
+    PrecisionRule="true"
+    EntityAttrName="RegionId"
+    EntityUsage="Districts"
+    AliasName="region_id"/>
+  <ViewAttribute
+    Name="Title"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Title"
+    EntityUsage="Districts"
+    AliasName="title"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="Districts"
+    AliasName="description"/>
+  <ViewAttribute
+    Name="Archived"
+    PrecisionRule="true"
+    EntityAttrName="Archived"
+    EntityUsage="Districts"
+    AliasName="archived"/>
+  <ViewAttribute
+    Name="Deleted"
+    PrecisionRule="true"
+    EntityAttrName="Deleted"
+    EntityUsage="Districts"
+    AliasName="deleted"/>
+  <ViewAttribute
+    Name="DateCreated"
+    PrecisionRule="true"
+    EntityAttrName="DateCreated"
+    EntityUsage="Districts"
+    AliasName="date_created"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="Districts"
+    AliasName="created_by"/>
+  <ViewAttribute
+    Name="LastModified"
+    PrecisionRule="true"
+    EntityAttrName="LastModified"
+    EntityUsage="Districts"
+    AliasName="last_modified"/>
+  <ViewAttribute
+    Name="ModifiedBy"
+    PrecisionRule="true"
+    EntityAttrName="ModifiedBy"
+    EntityUsage="Districts"
+    AliasName="modified_by"/>
+</ViewObject>

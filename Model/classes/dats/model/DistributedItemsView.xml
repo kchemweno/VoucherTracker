@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DistributedItemsView"
+  Version="12.2.1.12.24"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="DistributedItems"
+    Entity="dats.model.DistributedItems"/>
+  <ViewAttribute
+    Name="Id"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="DistributedItems"
+    AliasName="id"/>
+  <ViewAttribute
+    Name="DistributedItem"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DistributedItem"
+    EntityUsage="DistributedItems"
+    AliasName="distributed_item"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="DistributedItems"
+    AliasName="description"/>
+</ViewObject>

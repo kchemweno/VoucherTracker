@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+  <AppModuleConfigBag ApplicationName="dats.model.AppModule" default="AppModuleShared">
+    <AppModuleConfig name="AppModuleLocal" jbo.project="dats.model.Model" ApplicationName="dats.model.AppModule"
+                     DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxavailablesize="50" jbo.ampool.maxinactiveage="1000"
+                  jbo.ampool.monitorsleepinterval="10000"/>
+      <Database jbo.TypeMapEntries="Java" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver"
+                JDBCDataSource="java:comp/env/jdbc/dats_db_server_connectionDS" jbo.SQLBuilder="SQL92"/>
+      <Security AppModuleJndiName="dats.model.AppModule"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="AppModuleShared" jbo.project="dats.model.Model" ApplicationName="dats.model.AppModule"
+                     DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.isuseexclusive="false" jbo.ampool.initpoolsize="5" jbo.ampool.maxavailablesize="5000"/>
+      <Database jbo.TypeMapEntries="Java" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver"
+                JDBCDataSource="java:comp/env/jdbc/dats_db_server_connectionDS" jbo.SQLBuilder="SQL92"/>
+      <Security AppModuleJndiName="dats.model.AppModule"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+</BC4JConfig>

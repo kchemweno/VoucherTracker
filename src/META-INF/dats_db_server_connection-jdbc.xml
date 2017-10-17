@@ -1,0 +1,27 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<jdbc-data-source xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://xmlns.oracle.com/weblogic/jdbc-data-source http://xmlns.oracle.com/weblogic/jdbc-data-source/1.4/jdbc-data-source.xsd"
+                  xmlns="http://xmlns.oracle.com/weblogic/jdbc-data-source">
+    <name>dats_db_server_connection</name>
+    <jdbc-driver-params>
+        <url>jdbc:mysql://168.202.171.36:3306/disbursement_tracking</url>
+        <driver-name>com.mysql.jdbc.Driver</driver-name>
+        <properties>
+            <property>
+                <name>user</name>
+                <value>root</value>
+            </property>
+        </properties>
+        <use-password-indirection>true</use-password-indirection>
+    </jdbc-driver-params>
+    <jdbc-connection-pool-params>
+        <initial-capacity>5</initial-capacity>
+        <max-capacity>4096</max-capacity>
+        <min-capacity>5</min-capacity>
+        <test-table-name>SQL SELECT 1</test-table-name>
+    </jdbc-connection-pool-params>
+    <jdbc-data-source-params>
+        <jndi-name>jdbc/dats_db_server_connectionDS</jndi-name>
+        <scope>Application</scope>
+    </jdbc-data-source-params>
+</jdbc-data-source>

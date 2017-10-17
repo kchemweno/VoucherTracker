@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="steps.jsf" id="d1" binding="#{backingBeanScope.backing_steps.d1}">
+        <af:messages id="m1" binding="#{backingBeanScope.backing_steps.m1}"/>
+        <af:form id="f1" binding="#{backingBeanScope.backing_steps.f1}">
+            <af:pageTemplate viewId="/disbursement_authorization_mainTemplate.jsf" value="#{bindings.ptb1}" id="pt1"
+                             binding="#{backingBeanScope.backing_steps.pt1}">
+                <f:facet name="top"/>
+                <f:facet name="content">
+                    <af:panelCollection id="pc1" binding="#{backingBeanScope.backing_steps.pc1}"
+                                        styleClass="AFStretchWidth">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t1" binding="#{backingBeanScope.backing_steps.t1}">
+                                <af:button text="New Step"
+                                           disabled="#{!bindings.CreateInsert.enabled}" id="b1"
+                                           binding="#{backingBeanScope.backing_steps.b1}"
+                                           icon="#{resource['images:new_booking_small_blue.png']}"
+                                           actionListener="#{bindings.CreateInsert.execute}"/>
+                                <af:spacer width="10" height="10" id="s1"
+                                           binding="#{backingBeanScope.backing_steps.s1}"/>
+                                <af:button text="O.K"
+                                           disabled="#{!bindings.Rollback.enabled}" id="b2"
+                                           binding="#{backingBeanScope.backing_steps.b2}"
+                                           icon="#{resource['images:1495029165_f-check_256.png']}"
+                                           actionListener="#{bindings.Rollback.execute}" immediate="true">
+                                    <af:resetActionListener/>
+                                </af:button>
+                                <af:spacer width="10" height="10" id="s2"
+                                           binding="#{backingBeanScope.backing_steps.s2}"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3"
+                                           binding="#{backingBeanScope.backing_steps.b3}"
+                                           icon="#{resource['images:cancel_small.png']}">
+                                    <af:resetActionListener/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <af:table value="#{bindings.StepsView1.collectionModel}" var="row"
+                                  rows="#{bindings.StepsView1.rangeSize}"
+                                  emptyText="#{bindings.StepsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.StepsView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.StepsView1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.StepsView1.rangeSize}"
+                                  filterModel="#{bindings.StepsView1Query.queryDescriptor}" filterVisible="true"
+                                  queryListener="#{bindings.StepsView1Query.processQuery}" varStatus="vs" id="t2"
+                                  binding="#{backingBeanScope.backing_steps.t2}" partialTriggers="::b1"
+                                  editingMode="clickToEdit" columnStretching="last">
+                            <af:column sortProperty="#{bindings.StepsView1.hints.Step.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.StepsView1.hints.Step.label}" id="c2"
+                                       width="401">
+                                <af:inputText value="#{row.bindings.Step.inputValue}"
+                                              label="#{bindings.StepsView1.hints.Step.label}"
+                                              required="#{bindings.StepsView1.hints.Step.mandatory}"
+                                              columns="#{bindings.StepsView1.hints.Step.displayWidth}"
+                                              maximumLength="#{bindings.StepsView1.hints.Step.precision}"
+                                              shortDesc="#{bindings.StepsView1.hints.Step.tooltip}" id="it1">
+                                    <f:validator binding="#{row.bindings.Step.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.StepsView1.hints.Description.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.StepsView1.hints.Description.label}"
+                                       id="c1" width="407">
+                                <af:inputText value="#{row.bindings.Description.inputValue}"
+                                              label="#{bindings.StepsView1.hints.Description.label}"
+                                              required="#{bindings.StepsView1.hints.Description.mandatory}"
+                                              columns="#{bindings.StepsView1.hints.Description.displayWidth}"
+                                              maximumLength="#{bindings.StepsView1.hints.Description.precision}"
+                                              shortDesc="#{bindings.StepsView1.hints.Description.tooltip}" id="it2">
+                                    <f:validator binding="#{row.bindings.Description.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                        <f:facet name="statusbar"/>
+                    </af:panelCollection>
+                </f:facet>
+                <f:attribute name="page_title" value="Steps"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_steps-->
+</f:view>

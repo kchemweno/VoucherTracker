@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.12.24" id="DataBindings"
+             SeparateXMLFiles="false" Package="dats.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/disbursement_authorization_mainTemplate.jsf"
+          usageId="dats_view_disbursement_authorization_mainTemplatePageDef"/>
+    <page path="/home1.jsf" usageId="dats_view_homePageDef"/>
+    <page path="/users.jsf" usageId="dats_view_usersPageDef"/>
+    <page path="/steps.jsf" usageId="dats_view_stepsPageDef"/>
+    <page path="/error.jsf" usageId="dats_view_errorPageDef"/>
+    <page path="/disbursement_authorizations.jsf" usageId="dats_view_disbursement_authorizationPageDef"/>
+    <page path="/disbursement_authorizations.jsf" usageId="dats_view_disbursement_authorizationsPageDef"/>
+    <page path="/da_details.jsf" usageId="dats_view_da_detailsPageDef"/>
+    <page path="/home.jsf" usageId="dats_view_da_trackingsPageDef"/>
+    <page path="/step1.jsff" usageId="dats_view_step1PageDef"/>
+    <page path="/step2.jsff" usageId="dats_view_step2PageDef"/>
+    <page path="/step3.jsff" usageId="dats_view_page3PageDef"/>
+    <page path="/Step4.jsff" usageId="dats_view_Step4PageDef"/>
+    <page path="/step5.jsff" usageId="dats_view_step5PageDef"/>
+    <page path="/da_numbers.jsf" usageId="dats_view_da_numbersPageDef"/>
+    <page path="/das.jsf" usageId="dats_view_dasPageDef"/>
+    <page path="/change_password.jsf" usageId="dats_view_change_passwordPageDef"/>
+    <page path="/finance_tracker.jsf" usageId="dats_view_finance_trackerPageDef"/>
+    <page path="/responsibilities.jsf" usageId="dats_view_responsibilitiesPageDef"/>
+    <page path="/WEB-INF/task-flow_updateSteps3To15.xml#task-flow_updateSteps3To15@insertDaStepDetails"
+          usageId="dats_view_task_flow_updateSteps3To15_task_flow_updateSteps3To15_insertDaStepDetailsPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="dats_view_disbursement_authorization_mainTemplatePageDef"
+          path="dats.view.pageDefs.disbursement_authorization_mainTemplatePageDef"/>
+    <page id="dats_view_homePageDef" path="dats.view.pageDefs.homePageDef"/>
+    <page id="dats_view_usersPageDef" path="dats.view.pageDefs.usersPageDef"/>
+    <page id="dats_view_stepsPageDef" path="dats.view.pageDefs.stepsPageDef"/>
+    <page id="dats_view_errorPageDef" path="dats.view.pageDefs.errorPageDef"/>
+    <page id="dats_view_disbursement_authorizationPageDef" path="dats.view.pageDefs.disbursement_authorizationPageDef"/>
+    <page id="dats_view_disbursement_authorizationsPageDef"
+          path="dats.view.pageDefs.disbursement_authorizationsPageDef"/>
+    <page id="dats_view_da_detailsPageDef" path="dats.view.pageDefs.da_detailsPageDef"/>
+    <page id="dats_view_da_trackingsPageDef" path="dats.view.pageDefs.da_trackingsPageDef"/>
+    <page id="dats_view_step1PageDef" path="dats.view.pageDefs.step1PageDef"/>
+    <page id="dats_view_step2PageDef" path="dats.view.pageDefs.step2PageDef"/>
+    <page id="dats_view_page3PageDef" path="dats.view.pageDefs.page3PageDef"/>
+    <page id="dats_view_Step4PageDef" path="dats.view.pageDefs.Step4PageDef"/>
+    <page id="dats_view_step5PageDef" path="dats.view.pageDefs.step5PageDef"/>
+    <page id="dats_view_da_numbersPageDef" path="dats.view.pageDefs.da_numbersPageDef"/>
+    <page id="dats_view_dasPageDef" path="dats.view.pageDefs.dasPageDef"/>
+    <page id="dats_view_change_passwordPageDef" path="dats.view.pageDefs.change_passwordPageDef"/>
+    <page id="dats_view_finance_trackerPageDef" path="dats.view.pageDefs.finance_trackerPageDef"/>
+    <page id="dats_view_responsibilitiesPageDef" path="dats.view.pageDefs.responsibilitiesPageDef"/>
+    <page id="dats_view_task_flow_updateSteps3To15_task_flow_updateSteps3To15_insertDaStepDetailsPageDef"
+          path="dats.view.pageDefs.task_flow_updateSteps3To15_task_flow_updateSteps3To15_insertDaStepDetailsPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="dats.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="AppModuleDataControl1" Package="model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

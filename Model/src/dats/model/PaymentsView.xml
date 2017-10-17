@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PaymentsView"
+  Version="12.2.1.12.24"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  RowClass="dats.model.PaymentsViewRowImpl"
+  ComponentClass="dats.model.PaymentsViewImpl"
+  RowInterface="dats.model.common.PaymentsViewRow">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|Prog|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="MoneyVendorsView1"
+    ViewObjectName="dats.model.MoneyVendorsView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="DisbursementAuthorizations1View1"
+    ViewObjectName="dats.model.DisbursementAuthorizations1View"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SectorsView1"
+    ViewObjectName="dats.model.SectorsView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CategoriesView1"
+    ViewObjectName="dats.model.CategoriesView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PhasesView1"
+    ViewObjectName="dats.model.PhasesView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="LoasView1"
+    ViewObjectName="dats.model.LoasView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="DistributedItemsView1"
+    ViewObjectName="dats.model.DistributedItemsView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="NgosView1"
+    ViewObjectName="dats.model.NgosView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="DistrictsView1"
+    ViewObjectName="dats.model.DistrictsView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PaymentLocationsView1"
+    ViewObjectName="dats.model.PaymentLocationsView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="PaymentCyclesView1"
+    ViewObjectName="dats.model.PaymentCyclesView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="RatesView1"
+    ViewObjectName="dats.model.RatesView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_MoneyVendorId"
+    ListVOName="MoneyVendorsView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MoneyVendorId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MoneyVendorName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DaId"
+    ListVOName="DisbursementAuthorizations1View1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DaId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DaNumber"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SectorId"
+    ListVOName="SectorsView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SectorId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Sector"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CategoryId"
+    ListVOName="CategoriesView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CategoryId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CategoryName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PhaseId"
+    ListVOName="PhasesView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PhaseId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PhaseName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_LoaId"
+    ListVOName="LoasView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="LoaId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LoaNumber"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DistributedItemsId"
+    ListVOName="DistributedItemsView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DistributedItemsId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DistributedItem"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_NgoId"
+    ListVOName="NgosView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NgoId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NgoName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_DistrictId"
+    ListVOName="DistrictsView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DistrictId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Title"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PaymentLocationId"
+    ListVOName="PaymentLocationsView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PaymentLocationId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PaymentLocationName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_PaymentCycleId"
+    ListVOName="PaymentCyclesView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="PaymentCycleId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="PaymentCycle"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RateId"
+    ListVOName="RatesView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RateId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Rate"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Payments"
+    Entity="dats.model.Payments"/>
+  <ViewAttribute
+    Name="Id"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="Payments"
+    AliasName="id"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="MoneyVendorId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="MoneyVendorId"
+    EntityUsage="Payments"
+    AliasName="money_vendor_id"
+    LOVName="LOV_MoneyVendorId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DaId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DaId"
+    EntityUsage="Payments"
+    AliasName="da_id"
+    LOVName="LOV_DaId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SectorId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SectorId"
+    EntityUsage="Payments"
+    AliasName="sector_id"
+    LOVName="LOV_SectorId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CategoryId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CategoryId"
+    EntityUsage="Payments"
+    AliasName="category_id"
+    LOVName="LOV_CategoryId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PhaseId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PhaseId"
+    EntityUsage="Payments"
+    AliasName="phase_id"
+    LOVName="LOV_PhaseId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LoaId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LoaId"
+    EntityUsage="Payments"
+    AliasName="loa__id"
+    LOVName="LOV_LoaId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DistributedItemsId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DistributedItemsId"
+    EntityUsage="Payments"
+    AliasName="distributed_items_id"
+    LOVName="LOV_DistributedItemsId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NgoId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="NgoId"
+    EntityUsage="Payments"
+    AliasName="ngo_id"
+    LOVName="LOV_NgoId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DistrictId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DistrictId"
+    EntityUsage="Payments"
+    AliasName="district_id"
+    LOVName="LOV_DistrictId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PaymentLocationId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PaymentLocationId"
+    EntityUsage="Payments"
+    AliasName="payment_location_id"
+    LOVName="LOV_PaymentLocationId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PaymentCycleId"
+    PrecisionRule="true"
+    EntityAttrName="PaymentCycleId"
+    EntityUsage="Payments"
+    AliasName="payment_cycle_id"
+    LOVName="LOV_PaymentCycleId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PeriodPaid"
+    PrecisionRule="true"
+    EntityAttrName="PeriodPaid"
+    EntityUsage="Payments"
+    AliasName="period_paid"/>
+  <ViewAttribute
+    Name="ForemenVouchers"
+    PrecisionRule="true"
+    EntityAttrName="ForemenVouchers"
+    EntityUsage="Payments"
+    AliasName="foremen_vouchers"/>
+  <ViewAttribute
+    Name="Workers"
+    PrecisionRule="true"
+    EntityAttrName="Workers"
+    EntityUsage="Payments"
+    AliasName="workers"/>
+  <ViewAttribute
+    Name="PoNumber"
+    PrecisionRule="true"
+    EntityAttrName="PoNumber"
+    EntityUsage="Payments"
+    AliasName="po_number"/>
+  <ViewAttribute
+    Name="AuthorizedAmount"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AuthorizedAmount"
+    EntityUsage="Payments"
+    AliasName="authorized_amount"/>
+  <ViewAttribute
+    Name="AmountPaid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AmountPaid"
+    EntityUsage="Payments"
+    AliasName="amount_paid"/>
+  <ViewAttribute
+    Name="RateId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="RateId"
+    EntityUsage="Payments"
+    AliasName="rate_id"
+    LOVName="LOV_RateId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="VouchersToReceive"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="VouchersToReceive"
+    EntityUsage="Payments"
+    AliasName="vouchers_to_receive"/>
+  <ViewAttribute
+    Name="DateOfInvoice"
+    PrecisionRule="true"
+    EntityAttrName="DateOfInvoice"
+    EntityUsage="Payments"
+    AliasName="date_of_invoice"/>
+  <ViewAttribute
+    Name="ReimbursedThroughInvoiceNumber"
+    PrecisionRule="true"
+    EntityAttrName="ReimbursedThroughInvoiceNumber"
+    EntityUsage="Payments"
+    AliasName="reimbursed_through_invoice_number"/>
+  <ViewAttribute
+    Name="DateOfPay"
+    PrecisionRule="true"
+    EntityAttrName="DateOfPay"
+    EntityUsage="Payments"
+    AliasName="date_of_pay"/>
+  <ViewAttribute
+    Name="PayReferenceNumber"
+    PrecisionRule="true"
+    EntityAttrName="PayReferenceNumber"
+    EntityUsage="Payments"
+    AliasName="pay_reference_number"/>
+  <ViewAttribute
+    Name="BalToPay"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="BalToPay"
+    EntityUsage="Payments"
+    AliasName="Bal_To_Pay">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="PaymentsViewRow"/>
+    <Dependencies>
+      <Item
+        Value="AmountPaid"
+        Type="notify"/>
+      <Item
+        Value="AuthorizedAmount"
+        Type="notify"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MoneyVendorCommission"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="MoneyVendorCommission"
+    EntityUsage="Payments"
+    AliasName="Money_Vendor_Commission">
+    <Dependencies>
+      <Item
+        Value="AmountPaid"
+        Type="notify"/>
+      <Item
+        Value="RateId"
+        Type="notify"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GrossAmount"
+    IsQueriable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    EntityAttrName="GrossAmount"
+    EntityUsage="Payments"
+    AliasName="Gross_Amount">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="PaymentsViewRow"/>
+    <Dependencies>
+      <Item
+        Value="AmountPaid"
+        Type="notify"/>
+      <Item
+        Value="MoneyVendorCommission"
+        Type="notify"/>
+    </Dependencies>
+  </ViewAttribute>
+</ViewObject>

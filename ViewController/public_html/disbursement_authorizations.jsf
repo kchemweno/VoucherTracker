@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <!--<af:document title="disbursement_authorizations.jsf" id="d1" binding="#{backingBeanScope.backing_disbursement_authorizations.d1}"> -->
+    <af:document title="DA Numbers" id="d1" binding="#{backingBeanScope.backing_disbursement_authorizations.d1}">
+        <af:messages id="m1" binding="#{backingBeanScope.backing_disbursement_authorizations.m1}"/>
+        <af:form id="f1" binding="#{backingBeanScope.backing_disbursement_authorizations.f1}">
+            <af:pageTemplate viewId="/disbursement_authorization_mainTemplate.jsf" value="#{bindings.ptb1}" id="pt1"
+                             binding="#{backingBeanScope.backing_disbursement_authorizations.pt1}">
+                <f:facet name="top"/>
+                <f:facet name="content">
+                    <af:panelCollection id="pc1" binding="#{backingBeanScope.backing_disbursement_authorizations.pc1}"
+                                        styleClass="AFStretchWidth">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t1" binding="#{backingBeanScope.backing_disbursement_authorizations.t1}">
+                                <af:button text="New DA Number" id="b1"
+                                           binding="#{backingBeanScope.backing_disbursement_authorizations.b1}"
+                                           actionListener="#{bindings.CreateInsert.execute}"
+                                           disabled="#{!bindings.CreateInsert.enabled}"
+                                           icon="#{resource['images:1495029302_12_-_Plus.png']}"/>
+                                <af:spacer width="10" height="10" id="s1"
+                                           binding="#{backingBeanScope.backing_disbursement_authorizations.s1}"/>
+                                <af:button text="O.K" id="b2"
+                                           binding="#{backingBeanScope.backing_disbursement_authorizations.b2}"
+                                           actionListener="#{bindings.Commit.execute}"
+                                           disabled="#{!bindings.Commit.enabled}"
+                                           icon="#{resource['images:1495029165_f-check_256.png']}"/>
+                                <af:spacer width="10" height="10" id="s2"
+                                           binding="#{backingBeanScope.backing_disbursement_authorizations.s2}"/>
+                                <af:button text="Cancel" id="b3"
+                                           binding="#{backingBeanScope.backing_disbursement_authorizations.b3}"
+                                           disabled="#{!bindings.Rollback.enabled}"
+                                           actionListener="#{bindings.Rollback.execute}" immediate="true"
+                                           icon="#{resource['images:cancel_small.png']}">
+                                    <af:resetActionListener/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <af:table value="#{bindings.DisbursementAuthorizationsView1.collectionModel}" var="row"
+                                  rows="#{bindings.DisbursementAuthorizationsView1.rangeSize}"
+                                  emptyText="#{bindings.DisbursementAuthorizationsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.DisbursementAuthorizationsView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.DisbursementAuthorizationsView1.collectionModel.makeCurrent}"
+                                  rowSelection="single"
+                                  fetchSize="#{bindings.DisbursementAuthorizationsView1.rangeSize}"
+                                  filterModel="#{bindings.DisbursementAuthorizationsView1Query.queryDescriptor}"
+                                  filterVisible="true"
+                                  queryListener="#{bindings.DisbursementAuthorizationsView1Query.processQuery}"
+                                  varStatus="vs" id="t2"
+                                  binding="#{backingBeanScope.backing_disbursement_authorizations.t2}"
+                                  editingMode="clickToEdit" partialTriggers="::b1" columnStretching="last"
+                                  styleClass="AFStretchWidth">
+                            <af:column sortProperty="#{bindings.DisbursementAuthorizationsView1.hints.DaNumber.name}"
+                                       filterable="true" sortable="true" headerText="DA Number" id="c1" width="100">
+                                <af:inputText value="#{row.bindings.DaNumber.inputValue}"
+                                              label="#{bindings.DisbursementAuthorizationsView1.hints.DaNumber.label}"
+                                              required="#{bindings.DisbursementAuthorizationsView1.hints.DaNumber.mandatory}"
+                                              columns="#{bindings.DisbursementAuthorizationsView1.hints.DaNumber.displayWidth}"
+                                              maximumLength="#{bindings.DisbursementAuthorizationsView1.hints.DaNumber.precision}"
+                                              shortDesc="#{bindings.DisbursementAuthorizationsView1.hints.DaNumber.tooltip}"
+                                              id="it1">
+                                    <f:validator binding="#{row.bindings.DaNumber.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.DisbursementAuthorizationsView1.hints.TotalValue.name}"
+                                       filterable="true" sortable="true" headerText="Total Value" id="c3" width="100">
+                                <af:inputText value="#{row.bindings.TotalValue.inputValue}"
+                                              label="#{bindings.DisbursementAuthorizationsView1.hints.TotalValue.label}"
+                                              required="#{bindings.DisbursementAuthorizationsView1.hints.TotalValue.mandatory}"
+                                              columns="#{bindings.DisbursementAuthorizationsView1.hints.TotalValue.displayWidth}"
+                                              maximumLength="#{bindings.DisbursementAuthorizationsView1.hints.TotalValue.precision}"
+                                              shortDesc="#{bindings.DisbursementAuthorizationsView1.hints.TotalValue.tooltip}"
+                                              id="it3">
+                                    <f:validator binding="#{row.bindings.TotalValue.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.DisbursementAuthorizationsView1.hints.TotalValue.format}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.DisbursementAuthorizationsView1.hints.NumberOfBeneficiaries.name}"
+                                       filterable="true" sortable="true" headerText="Beneficiaries" id="c4" width="100">
+                                <af:inputText value="#{row.bindings.NumberOfBeneficiaries.inputValue}"
+                                              label="#{bindings.DisbursementAuthorizationsView1.hints.NumberOfBeneficiaries.label}"
+                                              required="#{bindings.DisbursementAuthorizationsView1.hints.NumberOfBeneficiaries.mandatory}"
+                                              columns="#{bindings.DisbursementAuthorizationsView1.hints.NumberOfBeneficiaries.displayWidth}"
+                                              maximumLength="#{bindings.DisbursementAuthorizationsView1.hints.NumberOfBeneficiaries.precision}"
+                                              shortDesc="#{bindings.DisbursementAuthorizationsView1.hints.NumberOfBeneficiaries.tooltip}"
+                                              id="it4">
+                                    <f:validator binding="#{row.bindings.NumberOfBeneficiaries.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.DisbursementAuthorizationsView1.hints.NumberOfBeneficiaries.format}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.DisbursementAuthorizationsView1.hints.Description.name}"
+                                       filterable="true" sortable="true" headerText="Comments" id="c9" width="1475">
+                                <af:inputText value="#{row.bindings.Description.inputValue}"
+                                              label="#{bindings.DisbursementAuthorizationsView1.hints.Description.label}"
+                                              required="#{bindings.DisbursementAuthorizationsView1.hints.Description.mandatory}"
+                                              columns="#{bindings.DisbursementAuthorizationsView1.hints.Description.displayWidth}"
+                                              maximumLength="#{bindings.DisbursementAuthorizationsView1.hints.Description.precision}"
+                                              shortDesc="#{bindings.DisbursementAuthorizationsView1.hints.Description.tooltip}"
+                                              id="it6">
+                                    <f:validator binding="#{row.bindings.Description.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                        <f:facet name="statusbar"/>
+                    </af:panelCollection>
+                </f:facet>
+                <f:attribute name="page_title" value="DA Numbers"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_disbursement_authorizations-->
+</f:view>

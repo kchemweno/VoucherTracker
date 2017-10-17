@@ -1,0 +1,18 @@
+//Groovy Scripts for dats.model.PaymentsView
+
+package dats.model
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="BalToPay")
+def BalToPay_ExpressionScript_Expression()
+{
+//AuthorizedAmount-AmountPaid
+}
+
+@TransientValueExpression(attributeName="GrossAmount")
+def GrossAmount_ExpressionScript_Expression()
+{
+//AmountPaid+MoneyVendorCommission
+}
+

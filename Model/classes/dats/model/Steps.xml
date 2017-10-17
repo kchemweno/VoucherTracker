@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Steps"
+  Version="12.2.1.12.24"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="steps"
+  AliasName="Steps"
+  BindingStyle="JDBC">
+  <Attribute
+    Name="Id"
+    ColumnName="id"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="steps"
+    PrimaryKey="true"
+    IsUpdateable="while_insert">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Step"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="step"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="steps">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IsActive"
+    ColumnName="is_active"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="steps"
+    IsUpdateable="while_insert">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Description"
+    Precision="250"
+    ColumnName="description"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="steps">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="DaTrackingProcess"
+    Association="dats.model.FkDaTrackingProcessUsersAssoc6"
+    AssociationEnd="dats.model.FkDaTrackingProcessUsersAssoc6.DaTrackingProcess"
+    AssociationOtherEnd="dats.model.FkDaTrackingProcessUsersAssoc6.Steps"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DaTrackingProcess1"
+    Association="dats.model.FkDaTrackingProcessStepsAssoc6"
+    AssociationEnd="dats.model.FkDaTrackingProcessStepsAssoc6.DaTrackingProcess1"
+    AssociationOtherEnd="dats.model.FkDaTrackingProcessStepsAssoc6.Steps1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DaTrackingProcess2"
+    Association="dats.model.FkDaTrackingProcessDisbursementAuthoizationsAssoc6"
+    AssociationEnd="dats.model.FkDaTrackingProcessDisbursementAuthoizationsAssoc6.DaTrackingProcess2"
+    AssociationOtherEnd="dats.model.FkDaTrackingProcessDisbursementAuthoizationsAssoc6.Steps2"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DaTrackingProcess3"
+    Association="dats.model.FkDaTrackingProcessDaStatusesAssoc6"
+    AssociationEnd="dats.model.FkDaTrackingProcessDaStatusesAssoc6.DaTrackingProcess3"
+    AssociationOtherEnd="dats.model.FkDaTrackingProcessDaStatusesAssoc6.Steps3"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DaTrackingProcessDocuments"
+    Association="dats.model.FkDaTrackingProcessDocumentsDaTrackingProcessAssoc6"
+    AssociationEnd="dats.model.FkDaTrackingProcessDocumentsDaTrackingProcessAssoc6.DaTrackingProcessDocuments"
+    AssociationOtherEnd="dats.model.FkDaTrackingProcessDocumentsDaTrackingProcessAssoc6.Steps"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Users"
+    Association="dats.model.FkUsersGroupsAssoc5"
+    AssociationEnd="dats.model.FkUsersGroupsAssoc5.Users"
+    AssociationOtherEnd="dats.model.FkUsersGroupsAssoc5.Steps"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Users1"
+    Association="dats.model.FkUsersUnitsAssoc5"
+    AssociationEnd="dats.model.FkUsersUnitsAssoc5.Users1"
+    AssociationOtherEnd="dats.model.FkUsersUnitsAssoc5.Steps1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dats.model.Steps.Id"/>
+    </AttrArray>
+  </Key>
+</Entity>

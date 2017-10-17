@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow_updateSteps3To15">
+    <default-activity>insertDaStepDetails</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <router id="ifSuccessful">
+      <case id="__7">
+        <outcome>outcome1</outcome>
+      </case>
+      <default-outcome>failure</default-outcome>
+    </router>
+    <method-call id="insertDaStepDetails">
+      <method>#{bindings.insertDaStepDetailsProgress.execute}</method>
+      <outcome>
+        <fixed-outcome>insertDaStepValues</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="showSucessMessage">
+      <method>#{backingBeanScope.backing_da_trackings.showMessageInsertDaDetailsSuccess}</method>
+    </method-call>
+    <method-call id="showFailureMessage">
+      <method>#{backingBeanScope.backing_da_trackings.showMessageInsertDaDetailsFailure}</method>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>insertDaStepDetails</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>insertDaStepValues</from-outcome>
+        <to-activity-id>ifSuccessful</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>ifSuccessful</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>success</from-outcome>
+        <to-activity-id>showSucessMessage</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>failure</from-outcome>
+        <to-activity-id>showFailureMessage</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

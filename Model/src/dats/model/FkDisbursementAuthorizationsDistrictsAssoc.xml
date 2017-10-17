@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkDisbursementAuthorizationsDistrictsAssoc"
+  Version="12.2.1.12.24"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="DistrictIdDisbursementAuthorizations1"
+    Cardinality="1"
+    Source="true"
+    Owner="dats.model.DisbursementAuthorizations1">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="DistrictIdDisbursementAuthorizations1"/>
+      <Attr Name="_foreignKey" Value="dats.model.DisbursementAuthorizations1.Primary1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dats.model.DisbursementAuthorizations1.Id"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="DisbursementAuthorizations12"
+    Cardinality="-1"
+    Owner="dats.model.DisbursementAuthorizations1">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="DisbursementAuthorizations12"/>
+      <Attr Name="_foreignKey" Value="dats.model.DisbursementAuthorizations1.FkDisbursementAuthorizationsDistricts"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dats.model.DisbursementAuthorizations1.DistrictId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

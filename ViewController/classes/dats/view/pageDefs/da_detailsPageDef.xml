@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24" id="da_detailsPageDef"
+                Package="dats.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <page path="dats.view.pageDefs.disbursement_authorization_mainTemplatePageDef" id="ptb1" Refresh="ifNeeded"/>
+    <iterator Binds="DisbursementAuthorizations1View1" RangeSize="1000" DataControl="AppModuleDataControl"
+              id="DisbursementAuthorizations1View1Iterator"/>
+    <searchRegion Binds="DisbursementAuthorizations1View1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="DisbursementAuthorizations1View1Query"/>
+  </executables>
+  <bindings>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <tree IterBinding="DisbursementAuthorizations1View1Iterator" id="DisbursementAuthorizations1View1">
+      <nodeDefinition DefName="dats.model.DisbursementAuthorizations1View" Name="DisbursementAuthorizations1View10">
+        <AttrNames>
+          <Item Value="DaNumber"/>
+          <Item Value="TotalValue"/>
+          <Item Value="NumberOfBeneficiaries"/>
+          <Item Value="NgoId"/>
+          <Item Value="LoaNumber"/>
+          <Item Value="DistrictId"/>
+          <Item Value="PhaseId"/>
+          <Item Value="InterventionTypeId"/>
+          <Item Value="Description"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="DisbursementAuthorizations1View1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

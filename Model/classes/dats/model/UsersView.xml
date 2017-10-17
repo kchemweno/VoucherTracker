@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UsersView"
+  Version="12.2.1.12.24"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  RowClass="dats.model.UsersViewRowImpl"
+  ComponentClass="dats.model.UsersViewImpl"
+  RowInterface="dats.model.common.UsersViewRow">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="UnitsView1"
+    ViewObjectName="dats.model.UnitsView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="GroupsView1"
+    ViewObjectName="dats.model.GroupsView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_UnitId"
+    ListVOName="UnitsView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="UnitId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UnitName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_GroupId"
+    ListVOName="GroupsView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="GroupId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="GroupName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="Users"
+    Entity="dats.model.Users"/>
+  <ViewAttribute
+    Name="Id"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="Users"
+    AliasName="id"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="Firstname"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Firstname"
+    EntityUsage="Users"
+    AliasName="firstname"/>
+  <ViewAttribute
+    Name="Lastname"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Lastname"
+    EntityUsage="Users"
+    AliasName="lastname"/>
+  <ViewAttribute
+    Name="Othername"
+    PrecisionRule="true"
+    EntityAttrName="Othername"
+    EntityUsage="Users"
+    AliasName="othername"/>
+  <ViewAttribute
+    Name="Username"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Username"
+    EntityUsage="Users"
+    AliasName="username"/>
+  <ViewAttribute
+    Name="Password"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Password"
+    EntityUsage="Users"
+    AliasName="password"/>
+  <ViewAttribute
+    Name="Gender"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Gender"
+    EntityUsage="Users"
+    AliasName="gender"/>
+  <ViewAttribute
+    Name="PhoneMobile"
+    PrecisionRule="true"
+    EntityAttrName="PhoneMobile"
+    EntityUsage="Users"
+    AliasName="phone_mobile"/>
+  <ViewAttribute
+    Name="PhoneOffice"
+    PrecisionRule="true"
+    EntityAttrName="PhoneOffice"
+    EntityUsage="Users"
+    AliasName="phone_office"/>
+  <ViewAttribute
+    Name="Email"
+    PrecisionRule="true"
+    EntityAttrName="Email"
+    EntityUsage="Users"
+    AliasName="email"/>
+  <ViewAttribute
+    Name="UnitId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UnitId"
+    EntityUsage="Users"
+    AliasName="unit_id"
+    LOVName="LOV_UnitId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GroupId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="GroupId"
+    EntityUsage="Users"
+    AliasName="group_id"
+    LOVName="LOV_GroupId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="IsActive"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IsActive"
+    EntityUsage="Users"
+    AliasName="is_active"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="Users"
+    AliasName="description"/>
+</ViewObject>

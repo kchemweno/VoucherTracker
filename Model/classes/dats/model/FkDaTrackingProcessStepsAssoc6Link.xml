@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkDaTrackingProcessStepsAssoc6Link"
+  Version="12.2.1.12.24"
+  InheritPersonalization="merge"
+  EntityAssociation="dats.model.FkDaTrackingProcessStepsAssoc6">
+  <ViewLinkDefEnd
+    Name="StepsView"
+    Cardinality="1"
+    Source="true"
+    Owner="dats.model.StepsView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_finderName" Value="StepsView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dats.model.StepsView.Id"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="DaTrackingProcessView1"
+    Cardinality="-1"
+    Owner="dats.model.DaTrackingProcessView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="DaTrackingProcessView1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dats.model.DaTrackingProcessView.StepId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

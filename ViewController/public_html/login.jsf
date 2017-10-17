@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+   <!-- <af:document title="login.jsf" id="d1" binding="#{backingBeanScope.backing_login.d1}"> -->
+    <af:document title="Login" id="d1" binding="#{backingBeanScope.backing_login.d1}">
+        <af:form id="f1" binding="#{backingBeanScope.backing_login.f1}" defaultCommand="b1">
+            <af:panelGridLayout id="pgl1" binding="#{backingBeanScope.backing_login.pgl1}">
+                <af:gridRow marginTop="10px" height="200px" id="gr1" binding="#{backingBeanScope.backing_login.gr1}">
+                    <af:gridCell marginStart="5px" width="34%" id="gc1"
+                                 binding="#{backingBeanScope.backing_login.gc1}"/>
+                    <af:gridCell width="auto" id="gc2"
+                                 binding="#{backingBeanScope.backing_login.gc2}" valign="bottom" halign="center"
+                                 marginEnd="5px" inlineStyle="padding-right:60px;">
+                        <af:image source="#{resource['images:FAO-blue_logo-630x630.png']}" shortDesc="FAO logo" id="i1"
+                                  binding="#{backingBeanScope.backing_login.i1}"
+                                  inlineStyle="height:90px; width:90px; padding-right:5px;"/>
+                    </af:gridCell>
+                    <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="gc3"
+                                 binding="#{backingBeanScope.backing_login.gc3}"/>
+                </af:gridRow>
+                <af:gridRow marginTop="5px" height="auto" id="gr2" binding="#{backingBeanScope.backing_login.gr2}">
+                    <af:gridCell marginStart="5px" width="34%" id="gc4"
+                                 binding="#{backingBeanScope.backing_login.gc4}" halign="end" valign="middle"
+                                 marginEnd="10px" inlineStyle="margin-right:4px; padding-right:0px;"/>
+                    <af:gridCell width="auto" id="gc5"
+                                 binding="#{backingBeanScope.backing_login.gc5}" valign="middle" halign="center">
+                        <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_login.pfl1}"
+                                            inlineStyle="width:522px;">
+                            <af:outputText value="Voucher Tracker" id="ot1"
+                                           binding="#{backingBeanScope.backing_login.ot1}"
+                                           inlineStyle="font-size:x-large; color:#2562b7; max-width:none; padding-left:70px;"/>
+                            <af:inputText label="Username" id="it1" binding="#{backingBeanScope.backing_login.it1}"
+                                          secret="false" value="#{backingBeanScope.backing_login.username}"
+                                          contentStyle="width:300px;font-size:large;color:#3388ff;"
+                                          inlineStyle="font-size:x-large; color:#3388ff;"
+                                          labelStyle="color:#3388ff;font-size:large;"/>
+                            <af:inputText label="Password" id="it2" binding="#{backingBeanScope.backing_login.it2}"
+                                          secret="true" value="#{backingBeanScope.backing_login.password}"
+                                          contentStyle="width:300px;font-size:x-large;color:#3388ff;"
+                                          inlineStyle="font-size:xx-large; color:#3388ff;"
+                                          labelStyle="color:#3388ff;font-size:large;"/>
+                            <f:facet name="footer">
+                                <af:panelGridLayout id="pgl3" binding="#{backingBeanScope.backing_login.pgl3}">
+                                    <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4"
+                                                binding="#{backingBeanScope.backing_login.gr4}">
+                                        <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc10"
+                                                     binding="#{backingBeanScope.backing_login.gc10}" halign="end"
+                                                     valign="middle">
+                                            <af:button text="O.K" id="b1"
+                                                       binding="#{backingBeanScope.backing_login.b1}"
+                                                       action="#{backingBeanScope.backing_login.doLogin}"
+                                                       inlineStyle="width:290px; text-align:center; font-size:large; color:#3388ff;"/>
+                                        </af:gridCell>
+                                    </af:gridRow>
+                                </af:panelGridLayout>
+                            </f:facet>
+                        </af:panelFormLayout>
+                    </af:gridCell>
+                    <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="gc6"
+                                 binding="#{backingBeanScope.backing_login.gc6}"/>
+                </af:gridRow>
+                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr3"
+                            binding="#{backingBeanScope.backing_login.gr3}">
+                    <af:gridCell marginStart="5px" width="34%" id="gc7"
+                                 binding="#{backingBeanScope.backing_login.gc7}"/>
+                    <af:gridCell marginStart="5px" width="auto" id="gc8"
+                                 binding="#{backingBeanScope.backing_login.gc8}"/>
+                    <af:gridCell marginStart="5px" width="33%" marginEnd="5px" id="gc9"
+                                 binding="#{backingBeanScope.backing_login.gc9}"/>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_login-->
+</f:view>

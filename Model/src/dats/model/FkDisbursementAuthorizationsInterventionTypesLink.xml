@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FkDisbursementAuthorizationsInterventionTypesLink"
+  Version="12.2.1.12.24"
+  InheritPersonalization="merge"
+  EntityAssociation="dats.model.FkDisbursementAuthorizationsInterventionTypesAssoc">
+  <ViewLinkDefEnd
+    Name="InterventionTypeIdDisbursementAuthorizations1View"
+    Cardinality="1"
+    Source="true"
+    Owner="dats.model.DisbursementAuthorizations1View">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="InterventionTypeIdDisbursementAuthorizations1View"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dats.model.DisbursementAuthorizations1View.Id"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="DisbursementAuthorizations1View1"
+    Cardinality="-1"
+    Owner="dats.model.DisbursementAuthorizations1View">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="DisbursementAuthorizations1View1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="dats.model.DisbursementAuthorizations1View.InterventionTypeId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>
